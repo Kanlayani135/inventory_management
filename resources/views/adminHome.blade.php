@@ -21,9 +21,6 @@
          <a href="{{ route('homepage')}}"><button class="btn btn-primary"  type="button">Go to HR Management System</button> </a>
             </div>
         </div>
-      
     </div>
-
 </div>
-
 @endsection
