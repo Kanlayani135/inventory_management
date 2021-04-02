@@ -28,3 +28,6 @@ Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home'
 //home
 
 Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
+//employee
+
+Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
