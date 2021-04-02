@@ -15,5 +15,13 @@ class EmployeeController extends Controller
     ]);
     }
 
+    function show($employeeCode) {
+        $employee = Employee::where('code', $employeeCode)->firstOrFail();
+        return view('employee-view', [
+        'title' => "{$this->title} : View",
+        'employee' => $employee,
+        ]);
+        }
+
     
     }

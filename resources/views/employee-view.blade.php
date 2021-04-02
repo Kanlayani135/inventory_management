@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Employee view')
+@section('title', $title)
 
 @section('content')
 
@@ -60,7 +60,7 @@
       </tbody>
     </table>
     </div>
-    <div class="frame">
+    <div>
     </div>
     
   

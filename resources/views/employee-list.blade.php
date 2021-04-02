@@ -25,7 +25,11 @@
       @foreach($employees as $employee)
       <tr>
         <th>
-          <em>{{ $employee->code }}</em>
+        <a href="{{ route('employee-view', [
+              'employee' => $employee->code,
+              ]) }}">
+            {{ $employee->code }}
+          </a>
         </th>
         <td>
           <em>{{ $employee->fname }}</em>
