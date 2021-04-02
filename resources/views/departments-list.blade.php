@@ -4,25 +4,21 @@
     <form action=" ">
 @csrf
     <main>
-        <table class="centerized top-header" style="width: 600px;">
-            <colgroup>
-                <col style="width: 6ch;" />
-                <col />
-                <col style="width: 20ch;" />
-            </colgroup>
+        <table class="table table-striped" style="width: 600px;">
+          
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Department</th>
-					<th>Department Head</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Department</th>
+					<th scope="col">Department Head</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($departments as $departments)
                 <tr>
-                    <td>{{ $departments->id }}</td>
+                    <th scope="row">{{ $departments->id }}</th>
                     <td>{{ $departments->department }}</td>
-                    <td>{{ $departments->department head }}</td>
+                    <td>{{ $departments->department_head }}</td>
                 </tr>
             @endforeach
             </tbody>
