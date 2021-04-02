@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DepartmentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,7 @@ Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home'
 //home
 
 Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
-//employee
 
-Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
+//department
+
+Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
