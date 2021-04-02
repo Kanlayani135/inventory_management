@@ -28,6 +28,7 @@ Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home'
 //home
 
 Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
-//employee
 
-Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
+//employee
+Route::get('/employee', [EmployeeController::class, 'list'])->name('employee-list');
+Route::get('/employee/{code}', [EmployeeController::class,'show'])->name('employee-view'); 
