@@ -18,7 +18,7 @@
 
                     You are normal user.
                 </div>
-                <button class="btn btn-primary" text-align="center" type="submit">Go to Website</button>
+                <a href="{{ route('homepage')}}"><button class="btn btn-primary"  type="button">Go to HR Management System</button> </a>
             </div>
         </div>
     </div>

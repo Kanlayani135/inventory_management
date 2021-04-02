@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\HomepageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,4 @@ Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home'
 
 //home
 
-Route::get('/homepage', function() {
-    return view('homepage');
-});
+Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
