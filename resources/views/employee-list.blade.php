@@ -62,7 +62,7 @@
           <em>{{ $employee->workstatus }}</em>
         </td>
         <td>
-          <em>{{ $employee->hiredate }}</em>
+          <em>{{ $employee->hireddate }}</em>
         </td>
       </tr>
       @endforeach
