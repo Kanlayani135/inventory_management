@@ -21,9 +21,6 @@
                 <button class="btn btn-primary"  type="submit">Go to HR Management System</button>
             </div>
         </div>
-      
     </div>
-
 </div>
-
 @endsection
