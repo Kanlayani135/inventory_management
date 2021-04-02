@@ -18,7 +18,7 @@
 
                     You are Admin.
                 </div>
-                <button class="btn btn-primary"  type="submit">Go to HR Management System</button>
+         <a href="{{ route('homepage')}}"><button class="btn btn-primary"  type="button">Go to HR Management System</button> </a>
             </div>
         </div>
       
