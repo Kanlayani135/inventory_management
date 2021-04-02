@@ -18,8 +18,14 @@
 
                     You are normal user.
                 </div>
+                <button class="btn btn-primary" text-align="center" type="submit">Go to Website</button>
             </div>
+          
         </div>
+       
     </div>
+    
 </div>
+
+
 @endsection
