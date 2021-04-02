@@ -22,6 +22,4 @@ class EmployeeController extends Controller
         'employee' => $employee,
         ]);
         }
-
-    
     }
