@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
+    
     protected $fillable = ['department','department_head'];
+    
     function employees() {
         return $this->hasMany(employee::class);
     }

@@ -3,22 +3,31 @@
 @section('title', $title)
 
 @section('content')
+
 <main>
-  <table class="table">
+
+      <nav>
+        <ul>
+          <li>
+            <a href="{{ route('employee-create-form') }}">Create Employee</a>
+          </li>
+        </ul>
+      </nav>
+      <table class="table">
     <thead>
       <tr>
         <th scope="col">Code</th>
-        <th scope="col">fname</th>
-        <th scope="col">lname</th>
-        <th scope="col">address</th>
-        <th scope="col">sex</th>
-        <th scope="col">dob</th>
-        <th scope="col">age</th>
-        <th scope="col">tel</th>
-        <th scope="col">civilstatus</th>
-        <th scope="col">position</th>
-        <th scope="col">workstatus</th>
-        <th scope="col">hireddate</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Sex</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Age</th>
+        <th scope="col">Tel</th>
+        <th scope="col">Civilstatus</th>
+        <th scope="col">Position</th>
+        <th scope="col">Work Status</th>
+        <th scope="col">Hired Date</th>
       </tr>
     </thead>
     <tbody>
@@ -64,6 +73,16 @@
         <td>
           <em>{{ $employee->hireddate }}</em>
         </td>
+        <td>
+        <a href="{{ route('employee-update-form', [
+        'employee' => $employee->code,
+    ]) }}">Update</a>
+        </td>
+        <td>
+        <a href="{{ route('employee-delete', [
+        'employee' => $employee->code,
+    ]) }}">Delete</a>
+    </td>
       </tr>
       @endforeach
     </tbody>

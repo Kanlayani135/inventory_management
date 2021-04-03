@@ -25,10 +25,16 @@ class DivisionController extends Controller
            
         ]);
     }
-    function created(Request $request){
+    function create(Request $request){
       
         $division = Division::create($request->getParsedBody());
-        return redirect()->route('division-list');
+        return redirect()->route('division-list')->with('success',"Add name is success");
        
+    }
+    function delete(Division $id){
+        $division->delete();
+
+        return redirect()->route('division-list')
+        ->with('success','Division deleted successfully');
     }
 }

@@ -1,12 +1,14 @@
 @extends('layouts.app')
+
 @section('title',$title)
 
 @section('content')
+
     <form action=" ">
 @csrf
+
     <main>
-        <table class="table table-striped" style="width: 600px;">
-          
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -16,11 +18,14 @@
             </thead>
             <tbody>
             @foreach($departments as $departments)
-                <tr>
-                    <th scope="row">{{ $departments->id }}</th>
-                    <td>{{ $departments->department }}</td>
-                    <td>{{ $departments->department_head }}</td>
-                </tr>
+            <tr>
+                <th scope="row">{{ $departments->id }}</th>
+                <td>{{ $departments->department }}</td>
+                <td>{{ $departments->department_head }}</td>
+                <td><a href="#" class="btn btn-success">Read</a></td>
+                <td><a href="#" class="btn btn-warning">Update</a></td>
+               
+            </tr>
             @endforeach
             </tbody>
         </table>

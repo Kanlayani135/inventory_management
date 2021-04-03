@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Models\Department;
+use App\Models\Employee;
+use App\Models\Division;
 
 class DepartmentsController extends Controller
 
@@ -30,7 +32,7 @@ class DepartmentsController extends Controller
       return view('departments-list', [
         'title' => "{$this->title}  's list",
         'term' => $term,
-        'departments' => $query->paginate(7),
+        'departments' => $query->paginate(10),
       ]);
     }
 
