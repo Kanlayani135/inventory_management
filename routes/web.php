@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\DivisionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

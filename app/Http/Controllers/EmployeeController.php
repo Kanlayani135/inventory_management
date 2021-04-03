@@ -32,8 +32,7 @@ class EmployeeController extends Controller
         });
         }
     return view('employee-list', [
-    'term' => $term,
-    'title' => "{$this->title} : List",
+    'title' => "{$this->title} 's list",
     'employees' => Employee::orderBy('code')->get(),
     'codes' => $query->paginate(5),
     ]);
@@ -43,7 +42,7 @@ class EmployeeController extends Controller
         $employee = Employee::where('code', $employeeCode)->firstOrFail();
 
         return view('employee-view', [
-        'title' => "{$this->title} : View",
+        'title' => "{$this->title} 's profile",
         'employee' => $employee,
         ]);
         }

@@ -29,7 +29,7 @@ class DepartmentsController extends Controller
       }
    
       return view('departments-list', [
-        'title' => "{$this->title} : List",
+        'title' => "{$this->title}  's list",
         'term' => $term,
         'departments' => $query->paginate(10),
       ]);
