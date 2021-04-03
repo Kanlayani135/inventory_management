@@ -44,14 +44,10 @@
                     <td>{{ $division->division }}</td>
                     <td>{{ $division->division_head }}</td>
                     <td> 
-                    <form action="{{ route('division-list',$division->id) }}" method="post">
                     <a class="btn btn-info" href="">Show</a>
                     <a class="btn btn-primary" href="">Edit</a>
-                    
-                    @csrf
-                     @method('delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <a class="btn btn-danger" href="{{route('division-delete',['division'=>$division->id,])}}">Delete</a>
+                  
                 </td>
                         
                 

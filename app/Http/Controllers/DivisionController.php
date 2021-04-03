@@ -31,7 +31,8 @@ class DivisionController extends Controller
         return redirect()->route('division-list')->with('success',"Add name is success");
        
     }
-    function delete(Division $id){
+    function delete($division_id){
+        $division = Division::where('id',$division_id)->firstOrFail();
         $division->delete();
 
         return redirect()->route('division-list')

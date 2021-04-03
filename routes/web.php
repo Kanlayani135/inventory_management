@@ -45,13 +45,14 @@ Route::get('/employee/{employee}/delete', [EmployeeController::class, 'delete'])
 Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('employee-view'); 
 
 //department
-
 Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
-
-
 Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form');
-
 Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create');
 Route::get('/department/{department}/delete', [DepartmentsController::class, 'delete'])->name('department-delete');
 
 
+//division
+Route::get('/division', [DivisionController::class, 'list'])->name('division-list');
+Route::get('/division/create', [DivisionController::class, 'addform'])->name('division-create-form');
+Route::post('/division/create', [DivisionController::class, 'create'])->name('division-create');
+Route::get('/division/{division}/delete', [DivisionController::class, 'delete'])->name('division-delete');
