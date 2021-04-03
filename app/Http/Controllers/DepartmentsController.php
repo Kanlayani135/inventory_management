@@ -43,5 +43,14 @@ class DepartmentsController extends Controller
 
   function create(Request $request) {
     $departments = Department::create($request->getParsedBody());
-    return redirect()->route('departments-list'); }
+    return redirect()->route('departments-list'); 
+  }
+
+    function delete($department_id) {
+      $department = Department::where('id',$department_id)->firstOrFail();
+      $department->delete();
+      return redirect()->route('departments-list')->with('success'."Department deleted successfully");
+      }
+      
+    
 }
