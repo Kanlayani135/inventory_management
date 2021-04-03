@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\AboutusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,10 @@ Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home'
 
 //home
 
-Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
+Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage');
+
+//About Us
+Route::get('aboutus', [AboutusController::class,'aboutus'])->name('aboutus'); 
 
 //employee
 

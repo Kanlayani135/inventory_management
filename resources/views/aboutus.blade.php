@@ -1,25 +1,22 @@
 @extends('layouts.app')
 
-@section('title',$title)
-
 @section('content')
-    <!-- On rows -->
-<tr class="table-active">...</tr>
+<main>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">About Us</li>
+    </ol>
+  </nav>
 
-<tr class="table-light">ID</tr>
-<tr class="table-success">622110135</tr>
-<tr class="table-danger">622110177</tr>
-<tr class="table-warning">622110204</tr>
-
-
-<!-- On cells (`td` or `th`) -->
-<tr>
-  <td class="table-active">Name</td>
-  
-  <tr class="table-light">...</tr>
-  <td class="table-success">...</td>
-  <td class="table-danger">...</td>
-  <td class="table-warning">...</td>
- 
-</tr>
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, EveryOne!</h1>
+      <p class="lead">This is a  Project Final Group of Us  </p>
+      <p class="lead">WE HOPE YOU CAN FEEL GOOD</p>
+    <hr class="my-4">
+      <div class="alert alert-dark" role="alert">622110135 Kanlayanee Baisukhan</div>
+      <div class="alert alert-light" role="alert">622110177 Thawanrat Tanbud</div>
+      <div class="alert alert-dark" role="alert">622110204 Pattaraporn Kompang</div>
+  </div>
+</main>
 @endsection
