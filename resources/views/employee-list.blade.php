@@ -3,14 +3,13 @@
 @section('title', $title)
 
 @section('content')
+
 <main>
 
       <nav>
-        <ul>
-          <li>
-            <a href="{{ route('employee-create-form') }}">Create Employee</a>
-          </li>
-        </ul>
+        
+            <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
+          
       </nav>
       <table class="table">
     <thead>
@@ -73,18 +72,15 @@
           <em>{{ $employee->hireddate }}</em>
         </td>
         <td>
-        <a href="{{ route('employee-update-form', [
-        'employee' => $employee->code,
-    ]) }}">Update</a>
+        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-success" >Update</a>
         </td>
         <td>
-        <a href="{{ route('employee-delete', [
-        'employee' => $employee->code,
-    ]) }}">Delete</a>
+        <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
     </td>
       </tr>
       @endforeach
     </tbody>
   </table>
+  {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

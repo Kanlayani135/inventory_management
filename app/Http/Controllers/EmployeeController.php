@@ -35,7 +35,7 @@ class EmployeeController extends Controller
     'term' => $term,
     'title' => "{$this->title} : List",
     'employees' => Employee::orderBy('code')->get(),
-    'codes' => $query->paginate(5),
+    'employees' => $query->paginate(5),
     ]);
     }
 
