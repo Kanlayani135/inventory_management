@@ -46,6 +46,24 @@ class DepartmentsController extends Controller
     return redirect()->route('departments-list'); 
   }
 
+  function updateForm($departments_id) {
+    $departments = Department::where('id', $departments_id)->firstOrFail();
+    return view('departments-update',[
+    'title' => "{$this->title} : Update",
+    'departments' => $departments,
+    ]);
+}   
+
+function update(Request $request, $departments_id) {
+    $departments = Department::where('id', $departments_id)->firstOrFail();
+    $data = $request->getParsedBody();
+    $departments->fill($data);
+    $departments->save();
+    return redirect()->route('departments-list',[
+    'departments' => $departments->id,
+        ]);
+    }
+
     function delete($department_id) {
       $department = Department::where('id',$department_id)->firstOrFail();
       $department->delete();

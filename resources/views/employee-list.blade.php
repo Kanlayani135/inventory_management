@@ -71,10 +71,10 @@
           <em>{{ $employee->hireddate }}</em>
         </td>
         <td>
-        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}">Update</a>
+        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-success" >Update</a>
         </td>
         <td>
-        <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}">Delete</a>
+        <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
     </td>
       </tr>
       @endforeach

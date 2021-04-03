@@ -41,7 +41,7 @@ Route::post('/employee/create', [EmployeeController::class, 'create'])->name('em
 
 //update
 
-Route::get('/product/{employee}/update', [EmployeeController::class, 'updateForm'])->name('employee-update-form');
+Route::get('/employee/{employee}/update', [EmployeeController::class, 'updateForm'])->name('employee-update-form');
 
 Route::post('/employee/{employee}/update', [EmployeeController::class, 'update'])->name('employee-update');
 
@@ -60,6 +60,10 @@ Route::get('/department', [DepartmentsController::class, 'list'])->name('departm
 Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form');
 
 Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create');
+
+Route::get('/department/{department}/update', [DepartmentsController::class, 'updateForm'])->name('department-update-form');
+
+Route::post('/department/{department}/update', [DepartmentsController::class, 'update'])->name('department-update');
 
 Route::get('/department/{department}/delete', [DepartmentsController::class, 'delete'])->name('department-delete');
 
