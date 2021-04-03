@@ -6,6 +6,12 @@
 <main>
   <form action="{{ route('employee-create') }}" method="post">
     @csrf
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+        </ol>
+      </nav>
     <table class="centered">
       <tr>
         <td class="field-label"><label for="code">Code :: </label></td>
@@ -65,7 +71,17 @@
       </tr>
       <tr>
         <td class="field-label"><label for="position">position :: </label></td>
-        <td><input id="position_id" type="text" name="position" value="{{ old('position') }}"/></td>
+        <td><select name="position">
+          <option value="">
+            --Please Select--
+            </option>
+            <option value="Manager">
+            Manager
+            </option>
+            <option value="Staff">
+            Staff
+            </option>
+          </select></td></td>
       </tr>
       <tr>
         <td class="field-label"><label for="derpartment_id">department_ID :: </label></td>
@@ -97,12 +113,40 @@
           </select></td>
       </tr>
       <tr>
+<<<<<<< HEAD
         <td class="field-label"><label for="division_id">division :: </label></td>
         <td><input id="division_id" type="text" name="division" value="{{ old('division_id') }}"/></td>
+=======
+        <td class="field-label"><label for="division_id">division_ID :: </label></td>
+        <td><select name="division_id">
+          <option value="">
+            --Please Select--
+            </option>
+            <option value="1">
+            ID 1 -MARKETING
+            </option>
+            <option value="2">
+            ID 2 -MANAGEMENT
+            </option>
+          <option value="3">
+            ID 3 -PURCHASE
+            </option>
+          </select></td>
+>>>>>>> 0caf8a46c581444f9519dc35edf26c6448a468bd
       </tr>
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>
-        <td><input id="workstatus" type="text" name="workstatus" value="{{ old('workstatus') }}"/></td>
+        <td><select name="workstatus">
+            <option value="">
+            --Please Select--
+            </option>
+            <option value="Rugular">
+            Regular
+            </option>
+            <option value="Temporary">
+            Temporary
+            </option>
+          </select></td></td>
       </tr>
       <tr>
         <td class="field-label"><label for="number">hireddate :: </label></td>

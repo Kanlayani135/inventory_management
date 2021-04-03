@@ -3,14 +3,19 @@
 @section('title', $title)
 
 @section('content')
-<main>
 
+<main>
+  @csrf
+  <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Back</a></li>
+        </ol>
+      </nav>
       <nav>
-        <ul>
-          <li>
-            <a href="{{ route('employee-create-form') }}">Create Employee</a>
-          </li>
-        </ul>
+        
+            <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
+          
       </nav>
       <table class="table">
     <thead>
@@ -80,5 +85,6 @@
       @endforeach
     </tbody>
   </table>
+  {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

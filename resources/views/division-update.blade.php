@@ -3,9 +3,7 @@
 
 @section('content')
 
-<form action="{{ route('division-update'),[
-    'division' => $division->id,
-    ] }}" method="post">
+<form action="{{ route('division-update',['division' => $division->id]) }}" method="post">
 @csrf
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">

@@ -4,9 +4,14 @@
 
 @section('content')
 <main>
-<form action="{{ route('employee-update', [
-        'employee' => $employee->code,
-    ]) }}" method="post">
+  @csrf
+  <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+        </ol>
+      </nav>
+<form action="{{ route('employee-update', ['employee' => $employee->code,]) }}" method="post">
     @csrf
     <table class="centered">
       <tr>

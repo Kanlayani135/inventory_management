@@ -43,7 +43,7 @@ class DivisionController extends Controller
  function updateForm($division_id) {
                 $division = Division::where('id', $division_id)->firstOrFail();
                 return view('division-update',[
-                'title' => "{$this->title} : edit",
+                'title' => "{$this->title}  's editing",
                 'division' => $division,
                 ]);
             }   
@@ -53,9 +53,8 @@ class DivisionController extends Controller
                     $data = $request->getParsedBody();
                     $division->fill($data);
                     $division->save();
-                    return redirect()->route('division-list',[
-                    'division' => $division->id,
-                    ]);
+                    return redirect()->route('division-list',['division' => $division->id,
+                    ])->with('success',"Department updated is successfully");
                 } 
 
     function delete($division_id){

@@ -56,6 +56,7 @@ Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('em
 //department
 Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
 Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form');
+
 Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create');
 
 Route::get('/department/{department}/update', [DepartmentsController::class, 'updateForm'])->name('department-update-form');
@@ -64,6 +65,7 @@ Route::post('/department/{department}/update', [DepartmentsController::class, 'u
 
 Route::get('/department/{department}/delete', [DepartmentsController::class, 'delete'])->name('department-delete');
 
+Route::get('/department/{department}', [DepartmentsController::class,'show'])->name('department-view');
 
 //division
 Route::get('/division', [DivisionController::class, 'list'])->name('division-list');

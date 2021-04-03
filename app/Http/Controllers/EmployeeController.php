@@ -34,7 +34,7 @@ class EmployeeController extends Controller
     return view('employee-list', [
     'title' => "{$this->title} 's list",
     'employees' => Employee::orderBy('code')->get(),
-    'codes' => $query->paginate(5),
+    'employees' => $query->paginate(5),
     ]);
     }
 
