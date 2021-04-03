@@ -14,9 +14,9 @@
       <p class="lead">This is a  Project Final Group of Us  </p>
       <p class="lead">WE HOPE YOU CAN FEEL GOOD</p>
     <hr class="my-4">
-      <div class="alert alert-dark" role="alert">622110135 Kanlayanee Baisukhan</div>
+      <div class="alert alert-dark" role="alert">622110135  Kanlayanee Baisukhan</div>
       <div class="alert alert-light" role="alert">622110177 Thawanrat Tanbud</div>
-      <div class="alert alert-dark" role="alert">622110204 Pattaraporn Kompang</div>
+      <div class="alert alert-dark" role="alert">622110204  Pattaraporn Kompang</div>
   </div>
 </main>
 @endsection
