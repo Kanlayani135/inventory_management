@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\DivisionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +37,9 @@ Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('em
 //department
 
 Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
+
+//Division
+Route::get('/division',[DivisionController::class,'list'])->name('division-list');
+Route::get('/division/create',[DivisionController::class,'created'])->name('division-create-form');
+Route::post('/division/created',[DivisionController::class,'addform'])->name('division-create');
+

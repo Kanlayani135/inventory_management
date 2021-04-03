@@ -10,7 +10,7 @@ class EmployeeController extends Controller
     private $title = 'Employee';
     function list() {
     return view('employee-list', [
-    'title' => "{$this->title} : List",
+    'title' => "{$this->title} 's list",
     'employees' => Employee::orderBy('code')->get(),
     ]);
     }
@@ -18,7 +18,7 @@ class EmployeeController extends Controller
     function show($employeeCode) {
         $employee = Employee::where('code', $employeeCode)->firstOrFail();
         return view('employee-view', [
-        'title' => "{$this->title} : View",
+        'title' => "{$this->title} 's profile",
         'employee' => $employee,
         ]);
         }
