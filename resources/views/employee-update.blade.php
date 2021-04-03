@@ -27,6 +27,14 @@
       </tr>
       <tr>
         <td class="field-label"><label for="sex">sex :: </label></td>
+        <td><select name="sex">
+            <option value="{{ old('Male') }}">
+              Male
+            </option>
+            <option value="{{ old('Female') }}">
+              Female
+            </option>
+          </select></td>
         <td><input id="sex" type="text" name="sex" value="{{ old('sex')?? $employee->sex }}"/></td>
       </tr>
       <tr>
@@ -63,7 +71,7 @@
       </tr>
       <tr>
         <td class="field-label"><label for="hireddate">hireddate :: </label></td>
-        <td><input id="hireddate" type="text" name="hireddate" value="{{ old('hireddate')?? $employee->hireddate }}"/></td>
+        <td><input id="hireddate" type="date" name="hireddate" value="{{ old('hireddate')?? $employee->hireddate }}"/></td>
       </tr>
     </table>
     <div class="actions-panel">

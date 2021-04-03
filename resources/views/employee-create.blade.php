@@ -25,11 +25,21 @@
       </tr>
       <tr>
         <td class="field-label"><label for="sex">sex :: </label></td>
-        <td><input id="sex" type="text" name="sex" value="{{ old('sex') }}"/></td>
+        <td><select name="sex">
+            <option value="">
+            --Please Select--
+            </option>
+            <option value="Male">
+              Male
+            </option>
+            <option value="Female">
+              Female
+            </option>
+          </select></td>
       </tr>
       <tr>
         <td class="field-label"><label for="dob">date of birth :: </label></td>
-        <td><input id="dob" type="text" name="dob" value="{{ old('dob') }}"/></td>
+        <td><input id="dob" type="date" name="dob" value="{{ old('dob') }}"/></td>
       </tr>
       <tr>
         <td class="field-label"><label for="age">age :: </label></td>
@@ -41,7 +51,17 @@
       </tr>
       <tr>
         <td class="field-label"><label for="civilstatus">civilstatus :: </label></td>
-        <td><input id="civilstatus" type="text" name="civilstatus" value="{{ old('civilstatus') }}"/></td>
+        <td><select name="civilstatus">
+            <option value="">
+            --Please Select--
+            </option>
+            <option value="Single">
+              Single
+            </option>
+            <option value="Married">
+              Married
+            </option>
+          </select></td>
       </tr>
       <tr>
         <td class="field-label"><label for="position">position :: </label></td>
@@ -49,7 +69,32 @@
       </tr>
       <tr>
         <td class="field-label"><label for="derpartment_id">department_ID :: </label></td>
-        <td><input id="department_id" type="text" name="department_id" value="{{ old('department_id') }}"/></td>
+        <td><select name="department_id">
+            <option value="">
+            --Please Select--
+            </option>
+            <option value="1">
+              ID 1 -Sales
+            </option>
+            <option value="2">
+              ID 2 -Marketing
+            </option>
+            <option value="3">
+              ID 3 -Human Resource
+            </option>
+            <option value="4">
+              ID 4 -Finance and Accounting
+            </option>
+            <option value="5">
+              ID 5 -Public relations
+            </option>
+            <option value="6">
+              ID 6 -Purchase and Production
+            </option>
+            <option value="7">
+              ID 7 -Warehouse
+            </option>
+          </select></td>
       </tr>
       <tr>
         <td class="field-label"><label for="division_id">division_ID :: </label></td>
@@ -61,7 +106,7 @@
       </tr>
       <tr>
         <td class="field-label"><label for="number">hireddate :: </label></td>
-        <td><input id="hireddate" type="text" name="hireddate" value="{{ old('hireddate') }}"/></td>
+        <td><input id="hireddate" type="date" name="hireddate" value="{{ old('hireddate') }}"/></td>
       </tr>
     </table>
     <div class="actions-panel">
