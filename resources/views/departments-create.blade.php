@@ -7,6 +7,12 @@
 <main>
   <form action="{{ route('departments-create') }}" method="post">
     @csrf
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('departments-list') }}">Back</a></li>
+        </ol>
+      </nav>
     <table>
       <tr>
         <td class="field-label"><label for="department"> Department :: </label></td>
