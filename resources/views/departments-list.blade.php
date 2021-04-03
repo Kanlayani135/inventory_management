@@ -30,8 +30,6 @@
                 <td>{{ $department->department_head }}</td>
                 <td><a href="#" class="btn btn-success" >Update</a></td>
                 <td><a href="{{route('department-delete',['department'=>$department->id,])}}"class="btn btn-danger">Delete</a>
-               
-                
                 </td>
             </tr>
             @endforeach

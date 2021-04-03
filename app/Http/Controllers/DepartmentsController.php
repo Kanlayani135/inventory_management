@@ -13,8 +13,8 @@ class DepartmentsController extends Controller
   private $title = 'Department';
   function __construct() {
   $this->middleware('auth');
-  } 
-    function list(Request $request)
+} 
+  function list(Request $request)
     {
       $data = $request->getQueryParams();
       $query = Department::orderBy('id');
@@ -39,7 +39,7 @@ class DepartmentsController extends Controller
     return view('departments-create',[
     'title' => "{$this->title} : Create Departments",
     ]);
-    }  
+  }  
 
   function create(Request $request) {
     $departments = Department::create($request->getParsedBody());
@@ -50,7 +50,5 @@ class DepartmentsController extends Controller
       $department = Department::where('id',$department_id)->firstOrFail();
       $department->delete();
       return redirect()->route('departments-list')->with('success'."Department deleted successfully");
-      }
-      
-    
+    }   
 }

@@ -65,7 +65,7 @@ class EmployeeController extends Controller
                 'title' => "{$this->title} : Update",
                 'employee' => $employee,
                 ]);
-                }   
+            }   
 
         function update(Request $request, $employeeCode) {
                     $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -75,13 +75,11 @@ class EmployeeController extends Controller
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
                     ]);
-                    } 
+                } 
 
         function delete($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
                 return redirect()->route('employee-list');
-                }
-            
-        
+            }     
     }
