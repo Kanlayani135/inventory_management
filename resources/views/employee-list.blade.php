@@ -12,13 +12,6 @@
           <li class="breadcrumb-item active" aria-current="page">Employee</li>
         </ol>
       </nav>
-<<<<<<< HEAD
-=======
-      <nav>
-        
-            <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
-          
-      </nav>
       @if(Session::has('success'))
         <div class="alert alert-success">
             {{ Session::get('success') }}
@@ -27,7 +20,6 @@
             @endphp
         </div>
         @endif
->>>>>>> 50aab9d5add5b9e1f34ff7f9925b9eccd3e21f64
       <table class="table">
     <thead>
       <tr>
