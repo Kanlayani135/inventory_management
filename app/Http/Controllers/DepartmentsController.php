@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Models\Department;
+use App\Models\Employee;
+use App\Models\Division;
 
 class DepartmentsController extends Controller
 

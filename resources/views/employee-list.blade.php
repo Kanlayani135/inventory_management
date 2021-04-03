@@ -3,8 +3,17 @@
 @section('title', $title)
 
 @section('content')
+
 <main>
-  <table class="table">
+
+      <nav>
+        <ul>
+          <li>
+            <a href="{{ route('employee-create-form') }}">Create Employee</a>
+          </li>
+        </ul>
+      </nav>
+      <table class="table">
     <thead>
       <tr>
         <th scope="col">Code</th>
@@ -64,6 +73,16 @@
         <td>
           <em>{{ $employee->hireddate }}</em>
         </td>
+        <td>
+        <a href="{{ route('employee-update-form', [
+        'employee' => $employee->code,
+    ]) }}">Update</a>
+        </td>
+        <td>
+        <a href="{{ route('employee-delete', [
+        'employee' => $employee->code,
+    ]) }}">Delete</a>
+    </td>
       </tr>
       @endforeach
     </tbody>

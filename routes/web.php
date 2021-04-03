@@ -34,6 +34,15 @@ Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage')
 
 Route::get('/employee', [EmployeeController::class, 'list'])->name('employee-list');
 
+//create
+Route::get('/employee/create', [EmployeeController::class, 'createForm'])->name('employee-create-form');
+Route::post('/employee/create', [EmployeeController::class, 'create'])->name('employee-create');
+//update
+Route::get('/product/{employee}/update', [EmployeeController::class, 'updateForm'])->name('employee-update-form');
+Route::post('/employee/{employee}/update', [EmployeeController::class, 'update'])->name('employee-update');
+//delete
+Route::get('/employee/{employee}/delete', [EmployeeController::class, 'delete'])->name('employee-delete');
+//view employee
 Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('employee-view'); 
 
 //department

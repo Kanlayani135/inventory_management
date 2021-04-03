@@ -47,6 +47,15 @@
         <tr>
           <td class="field-label">Position ::</td>
           <td class="type">{{ $employee->position }}</td>
+        </tr>
+        <tr>
+          <td class="field-label">Department ::</td>
+          <td class="type">{{ $employee->department_id }}</td>
+        </tr>
+        <tr>
+          <td class="field-label">Division ::</td>
+          <td class="type">{{ $employee->division_id }}</td>
+        </tr>
           <tr>
           <td class="field-label">Work Status ::</td>
           <td class="type">{{ $employee->workstatus }}</td>
