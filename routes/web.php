@@ -55,10 +55,6 @@ Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('em
 
 //department
 Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
-<<<<<<< HEAD
-=======
-
->>>>>>> 91ee7fd40f20596cc7e746bf2ad8f1c77b840844
 Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form');
 Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create');
 
@@ -71,6 +67,10 @@ Route::get('/department/{department}/delete', [DepartmentsController::class, 'de
 
 //division
 Route::get('/division', [DivisionController::class, 'list'])->name('division-list');
+
 Route::get('/division/create', [DivisionController::class, 'addform'])->name('division-create-form');
 Route::post('/division/create', [DivisionController::class, 'create'])->name('division-create');
+Route::get('/division/{division}', [DivisionController::class, 'show'])->name('division-view');
+Route::get('/division/{division}/update', [DivisionController::class, 'updateForm'])->name('division-update-form');
+Route::post('/division/{division}/update', [DivisionController::class, 'update'])->name('division-update');
 Route::get('/division/{division}/delete', [DivisionController::class, 'delete'])->name('division-delete');

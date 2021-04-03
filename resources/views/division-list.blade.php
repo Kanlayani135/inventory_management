@@ -44,9 +44,9 @@
                     <td>{{ $division->division }}</td>
                     <td>{{ $division->division_head }}</td>
                     <td> 
-                    <a class="btn btn-info" href="">Show</a>
-                    <a class="btn btn-primary" href="">Edit</a>
-                    <a class="btn btn-danger" href="{{route('division-delete',['division'=>$division->id,])}}">Delete</a>
+                    <a class="btn btn-info" href="{{ route('division-view',['division'=>$division->id]) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('division-update',['division'=>$division->id]) }}">Edit</a>
+                    <a class="btn btn-danger" href="{{route('division-delete',['division'=>$division->id])}}">Delete</a>
                   
                 </td>
                         

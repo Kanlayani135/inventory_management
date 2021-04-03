@@ -97,8 +97,8 @@
           </select></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="division_id">division_ID :: </label></td>
-        <td><input id="division_id" type="text" name="division_id" value="{{ old('division_id') }}"/></td>
+        <td class="field-label"><label for="division_id">division :: </label></td>
+        <td><input id="division_id" type="text" name="division" value="{{ old('division_id') }}"/></td>
       </tr>
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>
