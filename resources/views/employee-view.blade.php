@@ -5,8 +5,14 @@
 @section('content')
 
 <main>
- 
-    <table class>
+  @csrf
+  <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+        </ol>
+      </nav>
+    <table>
       <tbody>
         <tr>
           <td class="field-label">Code ::</td>
@@ -64,14 +70,7 @@
           <td class="field-label">Hired Date ::</td>
           <td class="type">{{ $employee->hireddate }}</td>
         </tr>
-        </tr>
-
       </tbody>
     </table>
-    </div>
-    <div>
-    </div>
-    
-  
 </main>
 @endsection

@@ -6,6 +6,12 @@
 <main>
   <form action="{{ route('employee-create') }}" method="post">
     @csrf
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+        </ol>
+      </nav>
     <table class="centered">
       <tr>
         <td class="field-label"><label for="code">Code :: </label></td>

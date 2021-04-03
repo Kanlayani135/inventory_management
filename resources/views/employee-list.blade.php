@@ -5,7 +5,13 @@
 @section('content')
 
 <main>
-
+  @csrf
+  <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Back</a></li>
+        </ol>
+      </nav>
       <nav>
         
             <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
