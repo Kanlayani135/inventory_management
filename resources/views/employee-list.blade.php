@@ -17,21 +17,25 @@
             <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
           
       </nav>
+      @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+            @php
+                Session::forget('success');
+            @endphp
+        </div>
+        @endif
       <table class="table">
     <thead>
       <tr>
         <th scope="col">Code</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Sex</th>
-        <th scope="col">Date of Birth</th>
-        <th scope="col">Age</th>
-        <th scope="col">Tel</th>
-        <th scope="col">Civil Status</th>
         <th scope="col">Position</th>
         <th scope="col">Work Status</th>
         <th scope="col">Hired Date</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -47,24 +51,6 @@
         </td>
         <td>
           <em>{{ $employee->lname }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->address }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->sex }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->dob }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->age }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->tel }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->civilstatus }}</em>
         </td>
         <td>
           <em>{{ $employee->position }}</em>

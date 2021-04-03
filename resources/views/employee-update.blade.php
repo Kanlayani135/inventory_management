@@ -56,7 +56,7 @@
       </tr>
       <tr>
         <td class="field-label"><label for="civilstatus">civilstatus :: </label></td>
-        <td><input id="civilstatus" type="text" name="civilstatus" value="{{ old('civilstatus')?? $employee->civilstatus }}"/></td>
+        <td><input id="civilstatus" name="civilstatus" value="{{ old('civilstatus')?? $employee->civilstatus }}"/></td>
       </tr>
       <tr>
         <td class="field-label"><label for="position">position :: </label></td>
@@ -67,8 +67,16 @@
         <td><input id="department_id" type="text" name="department_id" value="{{ old('department_id')?? $employee->department_id }}"/></td>
       </tr>
       <tr>
+        <td class="field-label"><label for="department">department :: </label></td>
+        <td><input id="department" type="text" name="department" value="{{ old('department')?? $employee->department }}"/></td>
+      </tr>
+      <tr>
         <td class="field-label"><label for="division_id">division_ID :: </label></td>
         <td><input id="division_id" type="text" name="division_id" value="{{ old('division_id')?? $employee->division_id }}"/></td>
+      </tr>
+      <tr>
+        <td class="field-label"><label for="division_id">division :: </label></td>
+        <td><input id="division" type="text" name="division" value="{{ old('division_id')?? $employee->division }}"/></td>
       </tr>
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>

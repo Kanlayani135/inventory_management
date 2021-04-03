@@ -10,6 +10,10 @@ use App\Models\Division;
 class EmployeeController extends Controller
 {
     private $title = 'Employee';
+    function __construct() {
+        $this->middleware('auth');
+
+      } 
     function list(Request $request) {
         $data = $request->getQueryParams();
         $query = Employee::orderBy('code');
@@ -46,17 +50,34 @@ class EmployeeController extends Controller
         'employee' => $employee,
         ]);
         }
+        
+        //private $title = 'Employee';
+        //function __construct() {
+           // $this->middleware('auth');
+        //}
+
 
         function createForm(Request $request) {
+            
+            $departments = Department::orderBy('id');
+            $employees = Employee::orderBy('code');
+            $females = Employee::where('sex','Female');
+            $males = Employee::where('sex','Male');
             return view('employee-create',[
             'title' => "{$this->title} : Create Employee",
+            'departments' => $departments->get(),
+            'employees' => $employees->get(),
+            'females' => $females->get(),
+            'males' => $males->get(),
+
+            
             
             ]);
             }  
 
         function create(Request $request) {
             $employee = Employee::create($request->getParsedBody());
-            return redirect()->route('employee-list'); }
+            return redirect()->route('employee-list')->with('success',"Create employee is successfully"); }
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -79,6 +100,6 @@ class EmployeeController extends Controller
         function delete($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
-                return redirect()->route('employee-list');
+                return redirect()->route('employee-list')->with('success',"Delete employee is successfully");
             }     
     }

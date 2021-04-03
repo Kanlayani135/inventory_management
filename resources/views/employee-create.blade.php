@@ -31,17 +31,20 @@
       </tr>
       <tr>
         <td class="field-label"><label for="sex">sex :: </label></td>
-        <td><select name="sex">
-            <option value="">
-            --Please Select--
-            </option>
-            <option value="Male">
+        <td>
+        <select name="sex">
+        @foreach($males as $male)
+            <option value="{{ $male->Male}}" {{ ($male->sex == old('male'))? ' selected' : '' }}>
               Male
             </option>
-            <option value="Female">
+            @endforeach
+            @foreach($females as $female)
+            <option value="{{ $female->Female}}" {{ ($female->sex == old('female'))? ' selected' : '' }}>
               Female
             </option>
-          </select></td>
+            @endforeach
+          </select>
+        </td>
       </tr>
       <tr>
         <td class="field-label"><label for="dob">date of birth :: </label></td>
@@ -84,10 +87,10 @@
           </select></td></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="derpartment_id">department_ID :: </label></td>
-        <td><select name="department_id">
+        <td class="field-label"><label for="derpartment_id">department :: </label></td>
+        <td><select name="department">
             <option value="">
-            --Please Select--
+            --Select ID--
             </option>
             <option value="1">
               ID 1 -Sales
@@ -110,17 +113,47 @@
             <option value="7">
               ID 7 -Warehouse
             </option>
+            </select>
+            <select name="department">
+            <option value="">
+            -- Select Department--
+            </option>
+            <option value="Sales">
+              Sales
+            </option>
+            <option value="Marketing">
+              Marketing
+            </option>
+            <option value="Human Resource">
+              Human Resource
+            </option>
+            <option value="Finance and Accounting">
+              Finance and Accounting
+            </option>
+            <option value="Public relations">
+              Public relations
+            </option>
+            <option value="Purchase and Production">
+              Purchase and Production
+            </option>
+            <option value="Warehouse">
+              Warehouse
+            </option>
           </select></td>
       </tr>
       <tr>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <td class="field-label"><label for="division_id">division :: </label></td>
         <td><input id="division_id" type="text" name="division" value="{{ old('division_id') }}"/></td>
 =======
         <td class="field-label"><label for="division_id">division_ID :: </label></td>
+=======
+        <td class="field-label"><label for="division_id">division :: </label></td>
+>>>>>>> be2d08c8c8072f6465377beadaccadfc8b75cc94
         <td><select name="division_id">
           <option value="">
-            --Please Select--
+            --Select ID--
             </option>
             <option value="1">
             ID 1 -MARKETING
@@ -131,8 +164,27 @@
           <option value="3">
             ID 3 -PURCHASE
             </option>
+<<<<<<< HEAD
           </select></td>
 >>>>>>> 0caf8a46c581444f9519dc35edf26c6448a468bd
+=======
+          </select>
+          <select name="division">
+          <option value="">
+            --Select Division--
+            </option>
+            <option value="1">
+            MARKETING
+            </option>
+            <option value="2">
+            MANAGEMENT
+            </option>
+          <option value="3">
+            PURCHASE
+            </option>
+          </select>
+          </td>
+>>>>>>> be2d08c8c8072f6465377beadaccadfc8b75cc94
       </tr>
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>
