@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('content')
+
 <main>
   @csrf
   <nav aria-label="breadcrumb">
@@ -12,11 +13,9 @@
         </ol>
       </nav>
       <nav>
-        <ul>
-          <li>
-            <a href="{{ route('employee-create-form') }}">Create Employee</a>
-          </li>
-        </ul>
+        
+            <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
+          
       </nav>
       <table class="table">
     <thead>
@@ -86,5 +85,6 @@
       @endforeach
     </tbody>
   </table>
+  {{ $employees->withQueryString()->links() }}
 </main>
 @endsection
