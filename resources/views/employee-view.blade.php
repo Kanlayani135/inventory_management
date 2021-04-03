@@ -49,11 +49,11 @@
           <td class="type">{{ $employee->position }}</td>
         </tr>
         <tr>
-          <td class="field-label">Department ::</td>
+          <td class="field-label">Department_ID ::</td>
           <td class="type">{{ $employee->department_id }}</td>
         </tr>
         <tr>
-          <td class="field-label">Division ::</td>
+          <td class="field-label">Division_ID ::</td>
           <td class="type">{{ $employee->division_id }}</td>
         </tr>
           <tr>

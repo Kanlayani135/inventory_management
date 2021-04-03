@@ -3,7 +3,6 @@
 @section('title', $title)
 
 @section('content')
-
 <main>
 
       <nav>
