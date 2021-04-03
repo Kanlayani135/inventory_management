@@ -52,7 +52,6 @@ class EmployeeController extends Controller
             return view('employee-create',[
             'title' => "{$this->title} : Create Employee",
             
-          
             ]);
             }  
 
@@ -70,9 +69,10 @@ class EmployeeController extends Controller
 
         function update(Request $request, $employeeCode) {
                     $employee = Employee::where('code', $employeeCode)->firstOrFail();
-                    $employee->fill($request->getParsedBody());
+                    $data = $request->getParsedBody();
+                    $employee->fill($data);
                     $employee->save();
-                    return redirect()->route('employee-view',[
+                    return redirect()->route('employee-list',[
                     'employee' => $employee->code,
                     ]);
                     } 
