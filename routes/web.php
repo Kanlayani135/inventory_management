@@ -55,10 +55,6 @@ Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('em
 
 //department
 Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
-<<<<<<< HEAD
-=======
-
->>>>>>> 91ee7fd40f20596cc7e746bf2ad8f1c77b840844
 Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form');
 Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create');
 
