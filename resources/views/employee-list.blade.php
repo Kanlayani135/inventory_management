@@ -22,7 +22,7 @@
         <th scope="col">Date of Birth</th>
         <th scope="col">Age</th>
         <th scope="col">Tel</th>
-        <th scope="col">Civilstatus</th>
+        <th scope="col">Civil Status</th>
         <th scope="col">Position</th>
         <th scope="col">Work Status</th>
         <th scope="col">Hired Date</th>
@@ -32,9 +32,7 @@
       @foreach($employees as $employee)
       <tr>
         <th>
-        <a href="{{ route('employee-view', [
-              'employee' => $employee->code,
-              ]) }}">
+        <a href="{{ route('employee-view', ['employee' => $employee->code,]) }}">
             {{ $employee->code }}
           </a>
         </th>

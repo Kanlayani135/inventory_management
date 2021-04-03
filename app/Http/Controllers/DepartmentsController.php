@@ -13,8 +13,8 @@ class DepartmentsController extends Controller
   private $title = 'Department';
   function __construct() {
   $this->middleware('auth');
-  } 
-    function list(Request $request)
+} 
+  function list(Request $request)
     {
       $data = $request->getQueryParams();
       $query = Department::orderBy('id');
@@ -29,7 +29,7 @@ class DepartmentsController extends Controller
       }
    
       return view('departments-list', [
-        'title' => "{$this->title} : List",
+        'title' => "{$this->title}  's list",
         'term' => $term,
         'departments' => $query->paginate(10),
       ]);
@@ -39,9 +39,34 @@ class DepartmentsController extends Controller
     return view('departments-create',[
     'title' => "{$this->title} : Create Departments",
     ]);
-    }  
+  }  
 
   function create(Request $request) {
     $departments = Department::create($request->getParsedBody());
-    return redirect()->route('departments-list'); }
+    return redirect()->route('departments-list'); 
+  }
+
+  function updateForm($departments_id) {
+    $departments = Department::where('id', $departments_id)->firstOrFail();
+    return view('departments-update',[
+    'title' => "{$this->title} : Update",
+    'departments' => $departments,
+    ]);
+}   
+
+function update(Request $request, $departments_id) {
+    $departments = Department::where('id', $departments_id)->firstOrFail();
+    $data = $request->getParsedBody();
+    $departments->fill($data);
+    $departments->save();
+    return redirect()->route('departments-list',[
+    'departments' => $departments->id,
+        ]);
+    }
+
+    function delete($department_id) {
+      $department = Department::where('id',$department_id)->firstOrFail();
+      $department->delete();
+      return redirect()->route('departments-list')->with('success'."Department deleted successfully");
+    }   
 }

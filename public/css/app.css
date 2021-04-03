@@ -9960,6 +9960,7 @@ h3 {
   }
   body {
     min-width: 992px !important;
+    
   }
 
   .container {
@@ -10001,4 +10002,5 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+
 }

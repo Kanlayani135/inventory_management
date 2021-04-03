@@ -32,8 +32,7 @@ class EmployeeController extends Controller
         });
         }
     return view('employee-list', [
-    'term' => $term,
-    'title' => "{$this->title} : List",
+    'title' => "{$this->title} 's list",
     'employees' => Employee::orderBy('code')->get(),
     'employees' => $query->paginate(5),
     ]);
@@ -43,7 +42,7 @@ class EmployeeController extends Controller
         $employee = Employee::where('code', $employeeCode)->firstOrFail();
 
         return view('employee-view', [
-        'title' => "{$this->title} : View",
+        'title' => "{$this->title} 's profile",
         'employee' => $employee,
         ]);
         }
@@ -65,7 +64,7 @@ class EmployeeController extends Controller
                 'title' => "{$this->title} : Update",
                 'employee' => $employee,
                 ]);
-                }   
+            }   
 
         function update(Request $request, $employeeCode) {
                     $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -75,13 +74,11 @@ class EmployeeController extends Controller
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
                     ]);
-                    } 
+                } 
 
         function delete($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
                 return redirect()->route('employee-list');
-                }
-            
-        
+            }     
     }
