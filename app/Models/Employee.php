@@ -12,6 +12,12 @@ class Employee extends Model
     
     function departments() {
         return $this->belongto(Department::class);
+<<<<<<< HEAD
+=======
+
+        function divisions() {
+            return $this->belongto(Division::class);
+>>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
     }
 
     function divisions() {

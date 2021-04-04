@@ -1,0 +1,8 @@
+.status {
+    color: tomato;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: auto;
+    margin: 10px auto 10px auto;
+  }
