@@ -23,12 +23,6 @@ class EmployeeController extends Controller
         ->where('code', 'LIKE', "%{$word}%")
         ->orWhere('fname', 'LIKE', "%{$word}%")
         ->orWhere('lname', 'LIKE', "%{$word}%")
-        ->orWhere('address', 'LIKE', "%{$word}%")
-        ->orWhere('sex', 'LIKE', "%{$word}%")
-        ->orWhere('dob', 'LIKE', "%{$word}%")
-        ->orWhere('age', 'LIKE', "%{$word}%")
-        ->orWhere('tel', 'LIKE', "%{$word}%")
-        ->orWhere('civilstatus', 'LIKE', "%{$word}%")
         ->orWhere('position', 'LIKE', "%{$word}%")
         ->orWhere('workstatus', 'LIKE', "%{$word}%")
         ->orWhere('hireddate', 'LIKE', "%{$word}%");
@@ -64,17 +58,23 @@ class EmployeeController extends Controller
 
         function create(Request $request) {
             $employee = Employee::create($request->getParsedBody());
-            return redirect()->route('employee-list')->with('success',"Created employee is successfully"); }
+            $data = $request->getParsedBody();
+            $employee = new Employee();
+            $employee->fill($data);
+            $employee->department()->associate($data['department']);
+            $employee->division()->associate($data['division']);
+            $employee->save();
+                return redirect()->route('employee-list')->with('success',"Created employee is successfully"); }
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $departments = Department::orderBy('id');
                 $divisions = Division::orderBy('id');
                 return view('employee-update',[
-                'title' => "{$this->title} : Update",
+                'title' => "{$this->title}'s Editing",
                 'departments' => $departments->get(),
                 'divisions' => $divisions->get(),
-                'title' => "{$this->title}'s Editing",
+                
                 'employee' => $employee,
                 
                 ]);
@@ -84,6 +84,8 @@ class EmployeeController extends Controller
                     $employee = Employee::where('code', $employeeCode)->firstOrFail();
                     $data = $request->getParsedBody();
                     $employee->fill($data);
+                    $employee->department()->associate($data['department']);
+                    $employee->division()->associate($data['division']);
                     $employee->save();
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,

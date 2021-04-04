@@ -34,15 +34,8 @@
       </tr>
       <tr>
         <td class="field-label"><label for="sex">sex :: </label></td>
-        <td> <select name="sex">
-        @foreach($sex as $sex)
-            <option value="{{ $sex->{{ $employee->sex }}" {{ ($male->sex == old('male'))? ' selected' : '' }}>
-              {{  old('sex')?? $employee->sex }} }}
-            </option>
-            @endforeach
-          
-          </select></td>
-        <td><input id="sex" type="text" name="sex" value="{{ old('sex')?? $employee->sex }}"/></td>
+        <td><input type="radio" id="sex" name="sex" value="Male" /> Male</input>  
+            <input type="radio" id="sex" name="female" value="Female" /> Female</input>
       </tr>
       <tr>
         <td class="field-label"><label for="dob">date of birth :: </label></td>
@@ -58,31 +51,13 @@
       </tr>
       <tr>
         <td class="field-label"><label for="civilstatus">civilstatus :: </label></td>
-        <td><select name="civilstatus">
-            <option value="">
-            --Please Select--
-            </option>
-            <option value="Single">
-              Single
-            </option>
-            <option value="Married">
-              Married
-            </option>
-          </select></td>
+        <td><input type="radio" id="civilstatus" name="civilstatus" value="Single" /> Single</input>  
+            <input type="radio" id="civilstatus" name="civilstatus" value="Married" /> Married</input></td>
       </tr>
       <tr>
         <td class="field-label"><label for="position">position :: </label></td>
-        <td><select name="position">
-          <option value="">
-            --Please Select--
-            </option>
-            <option value="Manager">
-            Manager
-            </option>
-            <option value="Staff">
-            Staff
-            </option>
-          </select></td>
+        <td><input type="radio" id="position" name="position" value="Manager" /> Manager</input>  
+            <input type="radio" id="position" name="position" value="Staff" /> Staff</input></td>
       </tr>
       <tr>
       <tr>
@@ -115,17 +90,9 @@
       
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>
-        <td><select name="workstatus">
-            <option value="">
-            --Please Select--
-            </option>
-            <option value="Rugular">
-            Regular
-            </option>
-            <option value="Temporary">
-            Temporary
-            </option>
-          </select></td>
+        <td><input type="radio" id="workstatus" name="workstatus" value="Regular" /> Regular</input>  
+            <input type="radio" id="workstatus" name="workstatus" value="Temporary" /> Temporary</input>
+            </td></td>
       </tr>
       <tr>
         <td class="field-label"><label for="hireddate">hireddate :: </label></td>

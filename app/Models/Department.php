@@ -9,9 +9,9 @@ class Department extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['department','department_head'];
+    protected $fillable = ['code','department','department_head'];
     
     function employees() {
-        return $this->hasMany(employee::class);
+        return $this->hasMany(Employee::class);
     }
 }

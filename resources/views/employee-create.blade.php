@@ -34,19 +34,8 @@
       </tr>
       <tr>
         <td scope="col"><label for="sex">Sex</label></td>
-        <td>
-        <select name="sex">
-        @foreach($males as $male)
-            <option value="{{ $male->Male}}" {{ ($male->sex == old('male'))? ' selected' : '' }}>
-              Male
-            </option>
-            @endforeach
-            @foreach($females as $female)
-            <option value="{{ $female->Female}}" {{ ($female->sex == old('female'))? ' selected' : '' }}>
-              Female
-            </option>
-            @endforeach
-          </select>
+        <td><input type="radio" id="sex" name="sex" value="Male" /> Male</input>  
+            <input type="radio" id="sex" name="sex" value="Female" /> Female</input>
         </td>
       </tr>
       <tr>
@@ -71,14 +60,14 @@
         <td class="field-label"><label for="position">position :: </label></td>
         <td><input type="radio" id="position" name="position" value="Manager" /> Manager</input>  
             <input type="radio" id="position" name="position" value="Staff" /> Staff</input>
-            </td></td>
+            </td>
       </tr>
       <tr>
         <td class="field-label"><label for="derpartment">department :: </label></td>
         <td><select id=department name="department">
             @foreach($departments as $department)
             <option value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }}>
-              [{{$department->id}}] - {{ $department->department }}
+              [{{$department->code}}] - {{ $department->department }}
             </option>
             @endforeach
           </select>
