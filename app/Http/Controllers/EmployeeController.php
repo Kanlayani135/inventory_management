@@ -46,16 +46,10 @@ class EmployeeController extends Controller
         $employee = Employee::where('code', $employeeCode)->firstOrFail();
 
         return view('employee-view', [
-        'title' => "{$this->title} 's Profile",
+        'title' => "{$this->title}'s Profile",
         'employee' => $employee,
         ]);
         }
-        
-        //private $title = 'Employee';
-        //function __construct() {
-           // $this->middleware('auth');
-        //}
-
 
         function createForm(Request $request) {
             
@@ -74,7 +68,7 @@ class EmployeeController extends Controller
 
         function create(Request $request) {
             $employee = Employee::create($request->getParsedBody());
-            return redirect()->route('employee-list')->with('success',"Create employee is successfully"); }
+            return redirect()->route('employee-list')->with('success',"Created employee is successfully"); }
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();

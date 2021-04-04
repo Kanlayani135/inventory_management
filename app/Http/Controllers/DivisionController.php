@@ -23,11 +23,7 @@ class DivisionController extends Controller
         $division = Division::where('id', $division_id)->firstOrFail();
 
         return view('division-view', [
-<<<<<<< HEAD
-        'title' => "{$this->title} 's Description",
-=======
         'title' => "{$this->title} Head of each Divisions",
->>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
         'division' => $division,
         ]);
         }

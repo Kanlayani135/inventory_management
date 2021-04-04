@@ -29,7 +29,7 @@ class DepartmentsController extends Controller
       }
    
       return view('departments-list', [
-        'title' => "{$this->title}  Department's List",
+        'title' => "{$this->title}Department's List",
         'term' => $term,
         'departments' => $query->paginate(5),
       ]);
@@ -39,7 +39,7 @@ class DepartmentsController extends Controller
     $departments = Department::where('id', $departments_id)->firstOrFail();
 
     return view('departments-view', [
-    'title' => "{$this->title} Head of each Departments",
+    'title' => "{$this->title}Head of each Departments",
     'departments' => $departments,
     ]);
   }
