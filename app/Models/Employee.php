@@ -11,16 +11,9 @@ class Employee extends Model
     protected $fillable =['code','fname','lname','address','sex','dob','age','tel','civilstatus','position','department_id','division_id','workstatus','hireddate'];
     
     function departments() {
-        return $this->belongto(Department::class);
-<<<<<<< HEAD
-=======
-
-        function divisions() {
-            return $this->belongto(Division::class);
->>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
+        return $this->belongsto(Department::class);
     }
-
     function divisions() {
-        return $this->belongto(Division::class);
+        return $this->belongsto(Division::class);
     }
 }
