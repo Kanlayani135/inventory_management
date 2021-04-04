@@ -58,18 +58,11 @@
 
                     <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
 
-                @endif
-<<<<<<< HEAD
-               
-=======
-            </td>
->>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
+                @endif            
             </tr>
             @endforeach
             </tbody>
         </table>
     </form>
 </main>
-    
-    </main>
 @endsection

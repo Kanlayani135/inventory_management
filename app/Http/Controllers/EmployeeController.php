@@ -32,7 +32,7 @@ class EmployeeController extends Controller
     'title' => "{$this->title} 's List",
     'term' => $term,
     'employees' => Employee::orderBy('code')->get(),
-    'employees' => $query->paginate(5),
+    'employees' => $query->paginate(100),
     ]);
     }
 
@@ -56,16 +56,22 @@ class EmployeeController extends Controller
         }  
 
         function create(Request $request) {
+            try {
+    
             $data = $request->getParsedBody();
             
             $employee = Employee::create($request->getParsedBody());
             
             $employee = new Employee();
             $employee->fill($data);
-            $employee->department()->associate($data['department']);
-            
+            $employee->departments()->associate($data['department']);
+            $employee->divisions()->associate($data['division']);
             $employee->save();
-                return redirect()->route('employee-list')->with('success',"Created employee is successfully"); }
+                return redirect()->route('employee-list')->with('success',"Created employee is successfully"); 
+            } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+        }    
+    }
+
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -75,13 +81,14 @@ class EmployeeController extends Controller
                 'title' => "{$this->title}'s Editing",
                 'departments' => $departments->get(),
                 'divisions' => $divisions->get(),
-                
                 'employee' => $employee,
                 
                 ]);
             }   
 
         function update(Request $request, $employeeCode) {
+            try{
+                    $employee = Employee::where('code', $employeeCode)->firstOrFail();
                     $data = $request->getParsedBody();
                     $employee = Employee::where('code', $employeeCode)->firstOrFail();
                     $employee->fill($data);
@@ -90,11 +97,16 @@ class EmployeeController extends Controller
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
                     ])->with('success',"Employee updated is successfully");;
-                } 
+                } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+            }
+        }
 
         function delete($employeeCode) {
+            try{
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
                 return redirect()->route('employee-list')->with('success',"Employee Delete is successfully");
-            }     
+                } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+            }
+        }
     }

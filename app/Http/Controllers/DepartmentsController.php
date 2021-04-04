@@ -33,11 +33,11 @@ class DepartmentsController extends Controller
       return view('departments-list', [
         'title' => "{$this->title}List of Departments",
         'term' => $term,
-        'departments' => $query->paginate(5),]);
+        'departments' => $query->paginate(100),]);
     }
 
-  function show($departments_id) {
-    $departments = Department::where('id', $departments_id)->firstOrFail();
+  function show($department_id) {
+    $departments = Department::where('id', $department_id)->firstOrFail();
 
     return view('departments-view', [
     'title' => "{$this->title}Head of each Departments",
@@ -50,28 +50,43 @@ class DepartmentsController extends Controller
   }  
 
   function create(Request $request) {
+    try{
+
     $departments = Department::create($request->getParsedBody());
-    return redirect()->route('departments-list')->with('success',"Department created is successfully"); 
+
+      return redirect()->route('departments-list')->with('success',"Department created is successfully"); 
+      } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+    }
   }
 
-  function updateForm($departments_id) {
-    $departments = Department::where('id', $departments_id)->firstOrFail();
+  function updateForm($department_id) {
+    $departments = Department::where('id', $department_id)->firstOrFail();
     return view('departments-update',[
     'title' => "{$this->title} Department's Editing",
     'departments' => $departments,]);
   }   
 
-  function update(Request $request, $departments_id) {
-    $departments = Department::where('id', $departments_id)->firstOrFail();
-    $data = $request->getParsedBody();
-    $departments->fill($data);
-    $departments->save();
-    return redirect()->route('departments-list',['departments' => $departments->id,])->with('success',"Department updated is successfully");
+  function update(Request $request, $department_id) {
+    try{
+
+      $departments = Department::where('id', $department_id)->firstOrFail();
+      $data = $request->getParsedBody();
+      $departments->fill($data);
+      $departments->save();
+
+      return redirect()->route('departments-list',['departments' => $departments->id,])->with('success',"Department updated is successfully");
+      } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+    }
   }
 
   function delete($department_id) {
+    try{
+      
       $department = Department::where('id',$department_id)->firstOrFail();
       $department->delete();
+
       return redirect()->route('departments-list')->with('success',"Department deleted is successfully");
-  }   
+      } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);    
+    }
+  }
 }

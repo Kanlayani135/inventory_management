@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('content')
+
 <main>
   @csrf
   <nav aria-label="breadcrumb">
@@ -12,9 +13,11 @@
           <li class="breadcrumb-item active" aria-current="page">Employee Update</li>
         </ol>
       </nav>
+     
 <form action="{{ route('employee-update', ['employee' => $employee->code,]) }}" method="post">
     @csrf
     <center>
+    
     <table class="centered">
       <tr>
         <td class="field-label"><label for="code">Code :: </label></td>
@@ -77,8 +80,8 @@
       <tr>
       <td class="field-label"><label for="division">division :: </label></td>
         <td><select id=division name="division">
-        @foreach($divisions as $division)
-                        @if($division->id === $employee->division_id)
+        @foreach($division as $divisions)
+                        @if($divisions->id === $employee->division_id)
                                 <option selected value="{{ $division->id }}" {{ ($division->id == old('division'))? ' selected' : '' }} > [{{ $division->id }}] {{ $division->division }}</option>
                             @else
                                 <option value="{{ $division->id }}" {{ ($division->id == old('division'))? ' selected' : '' }} > [{{ $division->id }}] {{ $division->division }}</option>
