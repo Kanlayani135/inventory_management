@@ -22,9 +22,16 @@
         @endif
         <nav class="text-center">
         @if(Auth::user()->guest) <a href="{{ route('employee-create-form') }}" class="btn btn-info">create your profile</a>@endif
-        @if(Auth::user()->is_admin) <a href="{{ route('employee-create-form') }}" class="btn btn-info">create new employee</a>@endif
+          @if(Auth::user()->is_admin) 
+        <button type="button" class="btn btn-light">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+        <i class="bi bi-plus-circle"><a href="{{ route('employee-create-form') }}" }}>Create New Employee</a></i></button>
+    @endif
   </nav><br />
-      <table class="table">
+      <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">Code</th>
@@ -39,57 +46,23 @@
     <tbody>
       @foreach($employees as $employee)
       <tr>
-<<<<<<< HEAD
-        <th>
-            {{ $employee->code }}
-          </a>
-        </th>
-        <td>
-          <em>{{ $employee->fname }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->lname }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->position }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->workstatus }}</em>
-        </td>
-        <td>
-          <em>{{ $employee->hireddate }}</em>
-        </td>
-        <td>
-        @if(Auth::user()->is_admin)
-        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-success" >Update</a>
-        @endif
-        </td>
-        <td>
-        @if(Auth::user()->is_admin)
-        <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
-        @endif
-    </td>
-=======
         <th> {{ $employee->code }} </th>
         <td><em>{{ $employee->fname }}</em></td>
         <td><em>{{ $employee->lname }}</em></td>
         <td><em>{{ $employee->position }}</em></td>
         <td><em>{{ $employee->workstatus }}</em></td>
         <td><em>{{ $employee->hireddate }}</em></td>
-        <td>
+      <td>  
         <a href="{{ route('employee-view', ['employee' => $employee->code,]) }}" class="btn btn-success" >Show</a>
+        @if(Auth::user()->is_admin)
         <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-primary" >Edit</a>
         <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
+        @endif
       </td>
->>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
       </tr>
       @endforeach
     </tbody>
   </table>
-<<<<<<< HEAD
-  
-=======
->>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
   {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

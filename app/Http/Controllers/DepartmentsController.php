@@ -33,7 +33,7 @@ class DepartmentsController extends Controller
       return view('departments-list', [
         'title' => "{$this->title}List of Departments",
         'term' => $term,
-        'departments' => $query->paginate(10),]);
+        'departments' => $query->paginate(100),]);
     }
 
   function show($departments_id) {
@@ -50,8 +50,13 @@ class DepartmentsController extends Controller
   }  
 
   function create(Request $request) {
+    try{
+
     $departments = Department::create($request->getParsedBody());
-    return redirect()->route('departments-list')->with('success',"Department created is successfully"); 
+
+      return redirect()->route('departments-list')->with('success',"Department created is successfully"); 
+      } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+    }
   }
 
   function updateForm($departments_id) {
@@ -62,16 +67,26 @@ class DepartmentsController extends Controller
   }   
 
   function update(Request $request, $departments_id) {
-    $departments = Department::where('id', $departments_id)->firstOrFail();
-    $data = $request->getParsedBody();
-    $departments->fill($data);
-    $departments->save();
-    return redirect()->route('departments-list',['departments' => $departments->id,])->with('success',"Department updated is successfully");
+    try{
+
+      $departments = Department::where('id', $departments_id)->firstOrFail();
+      $data = $request->getParsedBody();
+      $departments->fill($data);
+      $departments->save();
+
+      return redirect()->route('departments-list',['departments' => $departments->id,])->with('success',"Department updated is successfully");
+      } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+    }
   }
 
   function delete($department_id) {
+    try{
+      
       $department = Department::where('id',$department_id)->firstOrFail();
       $department->delete();
+
       return redirect()->route('departments-list')->with('success',"Department deleted is successfully");
-  }   
+      } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);    
+    }
+  }
 }
