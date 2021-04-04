@@ -19,7 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 </head>
+
 <body>
  
     <div id="app">
@@ -81,6 +83,9 @@
         <main class="py-4">
             
         <h1>@yield('title') </h1>
+        @error('input')
+    <div class="status">{{ $message }}</div>
+  @enderror
             @yield('content')
         </main>
     </div>

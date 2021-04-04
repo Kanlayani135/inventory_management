@@ -14,6 +14,6 @@ class Employee extends Model
         return $this->belongto(Department::class);
 
         function divisions() {
-            return $this->belongto(Department::class);
+            return $this->belongto(Division::class);
     }
     }}
