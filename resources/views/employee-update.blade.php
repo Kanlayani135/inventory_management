@@ -36,6 +36,15 @@
         <td class="field-label"><label for="sex">sex :: </label></td>
         <td><input type="radio" id="sex" name="sex" value="Male" /> Male</input>  
             <input type="radio" id="sex" name="female" value="Female" /> Female</input>
+        <td><select name="sex" value="{{ old('sex') }}">
+            <option value="{{ $employee->sex }}">
+              Male
+            </option>
+            <option value="{{$employee->sex}}">
+              Female
+            </option>
+          </select></td>
+        <td><input id="sex" type="text" name="sex" value="{{ old('sex')?? $employee->sex }}"/></td>
       </tr>
       <tr>
         <td class="field-label"><label for="dob">date of birth :: </label></td>

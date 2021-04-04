@@ -17,9 +17,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-      @if(Auth::user()->is_admin)
-        <a class="nav-link" href="{{ route('employee-list') }}">Employee<span class="sr-only">(current)</span></a>
-        @endif
+      
+        <a class="nav-link" href="{{ route('employee-list') }}">Employee <span class="sr-only">(current)</span></a>
+       
       </li>
     <li class="nav-item dropdown">
       @if(Auth::user()->is_admin)
