@@ -17,6 +17,4 @@ class Employee extends Model
     function division() {
         return $this->belongsto(Division::class);
     }
-
-    
 }
