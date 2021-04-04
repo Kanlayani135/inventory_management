@@ -21,6 +21,9 @@
         </div>
     @endif
     <main>
+    <div class="text-center">
+        <label> @if(Auth::guest())<a href="{{ route('departments-create') }}" class="btn btn-info" >Create Department</a> @endif</label>
+    </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -39,16 +42,20 @@
                 <td>{{ $department->department }}</td>
                 <td>{{ $department->department_head }}</td>
                 <td><a href="{{ route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
-                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a></td>
-                <td><a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
+                @if(Auth::user()->is_admin)
+                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a>
+                @endif
+                </td>
+                <td>
+                @if(Auth::user()->is_admin)
+                <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
+                @endif
                 </td>
             </tr>
             @endforeach
             </tbody>
         </table>
     </form>
-    <div class="text-center">
-        <label><a href="{{ route('departments-create') }}" class="btn btn-info" >Create Department</a></label>
-    </div>
+    
     </main>
 @endsection

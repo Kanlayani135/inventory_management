@@ -62,6 +62,7 @@
           <em>{{ $employee->hireddate }}</em>
         </td>
         <td>
+       
         <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-success" >Update</a>
         </td>
         <td>

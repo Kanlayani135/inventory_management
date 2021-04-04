@@ -12,31 +12,42 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('employee-list') }}">About Us<span class="sr-only">(current)</span></a>
       </li>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+      @if(Auth::user()->is_admin)
         <a class="nav-link" href="{{ route('employee-list') }}">Employee <span class="sr-only">(current)</span></a>
+        @endif
       </li>
 
       <li class="nav-item dropdown">
+      @if(Auth::user()->is_admin)
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Utilities
         </a>
+        @endif
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        @if(Auth::user()->is_admin)
           <a class="dropdown-item" href="{{ route('departments-list') }}">Department</a>
+          @endif
+          @if(Auth::user()->is_admin)
           <a class="dropdown-item" href="{{ route('division-list') }}">Division</a>
-         
+          @endif
           
         </div>
-      </li>
+        </li>
+      
     
     </ul>
     <form class="form-inline my-2 my-lg-0">
+    @if(Auth::user()->is_admin)
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      @endif
      
     </form>
+    
    
   </div>
 </nav>

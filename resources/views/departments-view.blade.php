@@ -15,10 +15,7 @@
 <main>
     <table class="table table-striped">
             <tbody>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">{{ $departments->id }}</th>
-                    </tr>
+               
                 <tr>
                     <th scope="col">Department</th>
                     <th scope="col">{{ $departments->department }}</th>

@@ -35,9 +35,16 @@ class DivisionController extends Controller
         ]);
     }
     function create(Request $request){
-      
+      try{
         $division = Division::create($request->getParsedBody());
         return redirect()->route('division-list')->with('success',"Add name is success");   
+      }catch(\Exception $error){
+          return back()->withInput()->withErrors([
+              'input'=>$error ->getMessage(),
+          ]);
+      }
+    
+    
     }
     //update
  function updateForm($division_id) {
@@ -49,19 +56,31 @@ class DivisionController extends Controller
             }   
 
         function update(Request $request, $division_id) {
+            try{
                     $division = Division::where('id', $division_id)->firstOrFail();
                     $data = $request->getParsedBody();
                     $division->fill($data);
                     $division->save();
                     return redirect()->route('division-list',['division' => $division->id,
                     ])->with('success',"Department updated is successfully");
+                } catch(\Exception $error){
+                    return back()->withInput()->withErrors([
+                    'input'=>$error ->getMessage(),
+                        ]);
                 } 
+            }
 
-    function delete($division_id){
+    function delete($division_id){      
+        try{
         $division = Division::where('id',$division_id)->firstOrFail();
         $division->delete();
 
         return redirect()->route('division-list')
         ->with('success','Division deleted successfully');
+        }catch(\Exception $error){
+            return back()->withInput()->withErrors([
+            'input'=>$error ->getMessage(),
+                ]);
     }
+        }   
 }
