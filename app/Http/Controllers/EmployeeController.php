@@ -57,7 +57,7 @@ class EmployeeController extends Controller
         }  
 
         function create(Request $request) {
-            try{
+            try {
             $employee = Employee::create($request->getParsedBody());
             $data = $request->getParsedBody();
             $employee = new Employee();
@@ -65,15 +65,11 @@ class EmployeeController extends Controller
             $employee->department()->associate($data['department']);
             $employee->division()->associate($data['division']);
             $employee->save();
-                return redirect()->route('employee-list')->with('success',"Created employee is successfully");
-            }catch(\Exception $error){
-                return back()->withInput()->withErrors([
-                    'input'=>$error ->getMessage(),
-                ]);
-            }
-            
-            
-            }
+                return redirect()->route('employee-list')->with('success',"Created employee is successfully"); 
+            } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+        }    
+    }
+
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -83,7 +79,6 @@ class EmployeeController extends Controller
                 'title' => "{$this->title}'s Editing",
                 'departments' => $departments->get(),
                 'divisions' => $divisions->get(),
-                
                 'employee' => $employee,
                 
                 ]);
@@ -99,26 +94,17 @@ class EmployeeController extends Controller
                     $employee->save();
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
-                    ])->with('success',"Employee updated is successfully");
-                }catch(\Exception $error){
-                    return back()->withInput()->withErrors([
-                        'input'=>$error ->getMessage(),
-                    ]);
-
-                } 
+                    ])->with('success',"Employee updated is successfully");;
+                } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
             }
+        }
 
         function delete($employeeCode) {
             try{
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
                 return redirect()->route('employee-list')->with('success',"Employee Delete is successfully");
-                  }catch(\Exception $error){
-                return back()->withInput()->withErrors([
-                    'input'=>$error ->getMessage(),
-                ]);
-
-            } 
+                } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
+            }
         }
-        
     }
