@@ -66,7 +66,7 @@
       <tr>
         <td class="field-label"><label for="derpartment">department :: </label></td>
         <td><select id=department name="department">
-        @foreach($department as $departments)
+        @foreach($departments as $department)
                         @if($department->id === $employee->department_id)
                                 <option selected value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > [{{ $department->id }}] {{ $department->department }}</option>
                             @else

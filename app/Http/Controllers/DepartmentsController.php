@@ -36,8 +36,8 @@ class DepartmentsController extends Controller
         'departments' => $query->paginate(100),]);
     }
 
-  function show($departments_id) {
-    $departments = Department::where('id', $departments_id)->firstOrFail();
+  function show($department_id) {
+    $departments = Department::where('id', $department_id)->firstOrFail();
 
     return view('departments-view', [
     'title' => "{$this->title}Head of each Departments",
@@ -59,17 +59,17 @@ class DepartmentsController extends Controller
     }
   }
 
-  function updateForm($departments_id) {
-    $departments = Department::where('id', $departments_id)->firstOrFail();
+  function updateForm($department_id) {
+    $departments = Department::where('id', $department_id)->firstOrFail();
     return view('departments-update',[
     'title' => "{$this->title} Department's Editing",
     'departments' => $departments,]);
   }   
 
-  function update(Request $request, $departments_id) {
+  function update(Request $request, $department_id) {
     try{
 
-      $departments = Department::where('id', $departments_id)->firstOrFail();
+      $departments = Department::where('id', $department_id)->firstOrFail();
       $data = $request->getParsedBody();
       $departments->fill($data);
       $departments->save();
