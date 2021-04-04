@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
         \Illuminate\Pagination\Paginator
         ::defaultView('vendor.pagination.default');
         \Illuminate\Pagination\Paginator

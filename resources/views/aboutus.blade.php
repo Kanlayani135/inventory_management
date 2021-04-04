@@ -10,7 +10,7 @@
   </nav>
 
   <div class="jumbotron">
-    <h1 class="display-4">Hello, EveryOne!</h1>
+    <h1 class="display-4">Hello, EveryOne !</h1>
       <p class="lead">This is a  Project Final Group of Us  </p>
       <p class="lead">WE HOPE YOU CAN FEEL GOOD</p>
     <hr class="my-4">
