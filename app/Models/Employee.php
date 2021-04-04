@@ -16,4 +16,15 @@ class Employee extends Model
         function divisions() {
             return $this->belongto(Division::class);
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9f77cca10bf2301497a9a6cd226b0730e297690a
+    function divisions() {
+        return $this->belongto(Division::class);
+    }
+}
+=======
     }}
+>>>>>>> 656cc329fed098b2dcd0c3e15d2e44db5e7f524a
