@@ -34,19 +34,12 @@
       </tr>
       <tr>
         <td class="field-label"><label for="sex">sex :: </label></td>
-        <td><select name="sex" value="{{ old('sex') }}">
-            <option value="{{ $employee->sex }}">
-              Male
-            </option>
-            <option value="{{$employee->sex}}">
-              Female
-            </option>
-          </select></td>
-        <td><input id="sex" type="text" name="sex" value="{{ old('sex')?? $employee->sex }}"/></td>
-      </tr>
+        <td><input type="radio" id="sex" name="sex" value="Male" /> Male</input>  
+            <input type="radio" id="sex" name="female" value="Female" /> Female</input>
+        
       <tr>
         <td class="field-label"><label for="dob">date of birth :: </label></td>
-        <td><input id="dob" type="text" name="dob" value="{{ old('dob')?? $employee->dob }}"/></td>
+        <td><input id="dob" type="date" name="dob" value="{{ old('dob')?? $employee->dob }}"/></td>
       </tr>
       <tr>
         <td class="field-label"><label for="age">age :: </label></td>
@@ -58,31 +51,48 @@
       </tr>
       <tr>
         <td class="field-label"><label for="civilstatus">civilstatus :: </label></td>
-        <td><input id="civilstatus" name="civilstatus" value="{{ old('civilstatus')?? $employee->civilstatus }}"/></td>
+        <td><input type="radio" id="civilstatus" name="civilstatus" value="Single" /> Single</input>  
+            <input type="radio" id="civilstatus" name="civilstatus" value="Married" /> Married</input></td>
       </tr>
       <tr>
         <td class="field-label"><label for="position">position :: </label></td>
-        <td><input id="position" type="text" name="position" value="{{ old('position')?? $employee->position }}"/></td>
+        <td><input type="radio" id="position" name="position" value="Manager" /> Manager</input>  
+            <input type="radio" id="position" name="position" value="Staff" /> Staff</input></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="department_id">department_ID :: </label></td>
-        <td><input id="department_id" type="text" name="department_id" value="{{ old('department_id')?? $employee->department_id }}"/></td>
-      </tr>
       <tr>
-        <td class="field-label"><label for="department">department :: </label></td>
-        <td><input id="department" type="text" name="department" value="{{ old('department')?? $employee->department }}"/></td>
-      </tr>
+        <td class="field-label"><label for="derpartment">department :: </label></td>
+        <td><select id=department name="department">
+        @foreach($departments as $department)
+                        @if($department->id === $employee->department_id)
+                                <option selected value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > [{{ $department->id }}] {{ $department->department }}</option>
+                            @else
+                                <option value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > [{{ $department->id }}] {{ $department->department }}</option>
+                            @endif
+                        @endforeach
+          </select>
+          </td>
+        </tr>
+
       <tr>
-        <td class="field-label"><label for="division_id">division_ID :: </label></td>
-        <td><input id="division_id" type="text" name="division_id" value="{{ old('division_id')?? $employee->division_id }}"/></td>
+      <td class="field-label"><label for="division">division :: </label></td>
+        <td><select id=division name="division">
+        @foreach($divisions as $division)
+                        @if($division->id === $employee->division_id)
+                                <option selected value="{{ $division->id }}" {{ ($division->id == old('division'))? ' selected' : '' }} > [{{ $division->id }}] {{ $division->division }}</option>
+                            @else
+                                <option value="{{ $division->id }}" {{ ($division->id == old('division'))? ' selected' : '' }} > [{{ $division->id }}] {{ $division->division }}</option>
+                            @endif
+                        @endforeach
+          </select>
+          </td>
       </tr>
-      <tr>
-        <td class="field-label"><label for="division_id">division :: </label></td>
-        <td><input id="division" type="text" name="division" value="{{ old('division_id')?? $employee->division }}"/></td>
-      </tr>
+      
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>
-        <td><input id="workstatus" type="text" name="workstatus" value="{{ old('workstatus')?? $employee->workstatus }}"/></td>
+        <td><input type="radio" id="workstatus" name="workstatus" value="Regular" /> Regular</input>  
+            <input type="radio" id="workstatus" name="workstatus" value="Temporary" /> Temporary</input>
+            </td></td>
       </tr>
       <tr>
         <td class="field-label"><label for="hireddate">hireddate :: </label></td>

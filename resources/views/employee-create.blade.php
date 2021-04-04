@@ -6,6 +6,7 @@
 <main>
   <form action="{{ route('employee-create') }}" method="post">
     @csrf
+    <table class="centered">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
@@ -33,19 +34,8 @@
       </tr>
       <tr>
         <td scope="col"><label for="sex">Sex</label></td>
-        <td>
-        <select name="sex">
-        @foreach($males as $male)
-            <option value="{{ $male->Male}}" {{ ($male->sex == old('male'))? ' selected' : '' }}>
-              Male
-            </option>
-            @endforeach
-            @foreach($females as $female)
-            <option value="{{ $female->Female}}" {{ ($female->sex == old('female'))? ' selected' : '' }}>
-              Female
-            </option>
-            @endforeach
-          </select>
+        <td><input type="radio" id="sex" name="sex" value="Male" /> Male</input>  
+            <input type="radio" id="sex" name="sex" value="Female" /> Female</input>
         </td>
       </tr>
       <tr>
@@ -61,140 +51,45 @@
         <td><input id="tel" type="text" name="tel" value="{{ old('tel') }}"/></td>
       </tr>
       <tr>
-        <td scope="col"><label for="civilstatus">Civil Status</label></td>
-        <td><select name="civilstatus">
-            <option value="">
-            --Please Select--
-            </option>
-            <option value="Single">
-              Single
-            </option>
-            <option value="Married">
-              Married
-            </option>
-          </select></td>
+        <td class="field-label"><label for="civilstatus">civilstatus :: </label></td>
+        <td><input type="radio" id="civilstatus" name="civilstatus" value="Single" /> Single</input>  
+            <input type="radio" id="civilstatus" name="civilstatus" value="Married" /> Married</input>
+        </td>
       </tr>
       <tr>
-        <td scope="col"><label for="position">Position</label></td>
-        <td><select name="position">
-          <option value="">
-            --Please Select--
-            </option>
-            <option value="Manager">
-            Manager
-            </option>
-            <option value="Staff">
-            Staff
-            </option>
-          </select></td></td>
+        <td class="field-label"><label for="position">position :: </label></td>
+        <td><input type="radio" id="position" name="position" value="Manager" /> Manager</input>  
+            <input type="radio" id="position" name="position" value="Staff" /> Staff</input>
+            </td>
       </tr>
       <tr>
-        <td scope="col"><label for="derpartment_id">Department</label></td>
-        <td><select name="department">
-            <option value="">
-            --Select ID--
+        <td class="field-label"><label for="derpartment">department :: </label></td>
+        <td><select id=department name="department">
+            @foreach($departments as $department)
+            <option value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }}>
+              [{{$department->code}}] - {{ $department->department }}
             </option>
-            <option value="1">
-              ID 1 -Sales
-            </option>
-            <option value="2">
-              ID 2 -Marketing
-            </option>
-            <option value="3">
-              ID 3 -Human Resource
-            </option>
-            <option value="4">
-              ID 4 -Finance and Accounting
-            </option>
-            <option value="5">
-              ID 5 -Public relations
-            </option>
-            <option value="6">
-              ID 6 -Purchase and Production
-            </option>
-            <option value="7">
-              ID 7 -Warehouse
-            </option>
-            </select>
-            <select name="department">
-            <option value="">
-            -- Select Department--
-            </option>
-            <option value="Sales">
-              Sales
-            </option>
-            <option value="Marketing">
-              Marketing
-            </option>
-            <option value="Human Resource">
-              Human Resource
-            </option>
-            <option value="Finance and Accounting">
-              Finance and Accounting
-            </option>
-            <option value="Public relations">
-              Public relations
-            </option>
-            <option value="Purchase and Production">
-              Purchase and Production
-            </option>
-            <option value="Warehouse">
-              Warehouse
-            </option>
-          </select></td>
-      </tr>
-      <tr>
-
-        <td scope="col"><label for="division_id">Division</label></td>
-        <td><input id="division_id" type="text" name="division" value="{{ old('division_id') }}"/></td>
-
-        <td scope="col"><label for="division_id">division_ID :: </label></td>
-
-        <td scope="col"><label for="division_id">division :: </label></td>
-
-        <td><select name="division_id">
-          <option value="">
-            --Select ID--
-            </option>
-            <option value="1">
-            ID 1 -MARKETING
-            </option>
-            <option value="2">
-            ID 2 -MANAGEMENT
-            </option>
-          <option value="3">
-            ID 3 -PURCHASE
-            </option>
+            @endforeach
           </select>
-          <select name="division">
-          <option value="">
-            --Select Division--
+          </td>
+        </tr>
+        
+        <tr>
+        <td class="field-label"><label for="division">division :: </label></td>
+        <td><select name="division">
+        @foreach($divisions as $division)
+            <option value="{{ $division->id }}" {{ ($division->id == old('division'))? ' selected' : '' }}>
+              [{{$division->id}}] - {{ $division->division }}
             </option>
-            <option value="1">
-            MARKETING
-            </option>
-            <option value="2">
-            MANAGEMENT
-            </option>
-          <option value="3">
-            PURCHASE
-            </option>
+            @endforeach
           </select>
           </td>
       </tr>
       <tr>
-        <td scope="col"><label for="workstatus">Work Status</label></td>
-        <td><select name="workstatus">
-            <option value="">
-            --Please Select--
-            </option>
-            <option value="Rugular">
-            Regular
-            </option>
-            <option value="Temporary">
-            Temporary
-            </option>
-          </select></td></td>
+        <td class="field-label"><label for="workstatus">workstatus :: </label></td>
+        <td><input type="radio" id="workstatus" name="workstatus" value="Regular" /> Regular</input>  
+            <input type="radio" id="workstatus" name="workstatus" value="Temporary" /> Temporary</input>
+            </td></td>
       </tr>
       <tr>
         <td class="field-label"><label for="number">Hired Date</label></td>

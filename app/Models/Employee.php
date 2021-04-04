@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
-    protected $fillable =['code','fname','lname','address','sex','dob','age','tel','civilstatus','position','department','division','workstatus','hireddate','department_id','division_id'];
+    protected $fillable =['code','fname','lname','address','sex','dob','age','tel','civilstatus','position','department_id','division_id','workstatus','hireddate'];
     
     function departments() {
         return $this->belongto(Department::class);
+
+        function divisions() {
+            return $this->belongto(Department::class);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -21,3 +25,6 @@ class Employee extends Model
         return $this->belongto(Division::class);
     }
 }
+=======
+    }}
+>>>>>>> 656cc329fed098b2dcd0c3e15d2e44db5e7f524a

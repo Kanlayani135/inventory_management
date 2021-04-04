@@ -58,11 +58,11 @@
         </tr>
         <tr>
           <td scope="col">Department</td>
-          <td scope="col">{{ $employee->department }}</td>
+          <td scope="col">{{ $employee->department_id }}</td>
         </tr>
         <tr>
           <td scope="col">Division</td>
-          <td scope="col">{{ $employee->division }}</td>
+          <td scope="col">{{ $employee->division_id }}</td>
         </tr>
           <tr>
           <td scope="col">Work Status</td>
