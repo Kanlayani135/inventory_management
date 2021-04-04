@@ -21,6 +21,7 @@
                 <tr>
                 <td scope="col" for="division">Division</td>
                 <td scope="col"><input type="text" id="division" name="division" value="{{ old('division')?? $division->division }}"/></td>
+                </td>
                 </tr>
                 <tr>
                 <td scope="col" for="division_head">Division Head</td>

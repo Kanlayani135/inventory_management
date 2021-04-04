@@ -66,7 +66,7 @@
         <td class="field-label"><label for="derpartment">department :: </label></td>
         <td><select id=department name="department">
             @foreach($departments as $department)
-            <option value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }}>
+            <option value="{{ $department->id }}" {{ ($department->code == old('department'))? ' selected' : '' }}>
               [{{$department->code}}] - {{ $department->department }}
             </option>
             @endforeach
@@ -78,8 +78,8 @@
         <td class="field-label"><label for="division">division :: </label></td>
         <td><select name="division">
         @foreach($divisions as $division)
-            <option value="{{ $division->id }}" {{ ($division->id == old('division'))? ' selected' : '' }}>
-              [{{$division->id}}] - {{ $division->division }}
+            <option value="{{ $division->id }}" {{ ($division->code == old('division'))? ' selected' : '' }}>
+              [{{$division->code}}] - {{ $division->division }}
             </option>
             @endforeach
           </select>
