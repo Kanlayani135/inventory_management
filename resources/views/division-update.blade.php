@@ -9,7 +9,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
     <li class="breadcrumb-item"><a href="{{ route('division-list') }}">Back</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Create division</li>
+    <li class="breadcrumb-item active" aria-current="page">Division Update</li>
   </ol>
 </nav>
     <main>

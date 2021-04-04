@@ -10,15 +10,12 @@
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('departments-list') }}">Back</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Department View</li>
             </ol>
     </nav>
 <main>
     <table class="table table-striped">
             <tbody>
-<<<<<<< HEAD
-=======
-               
->>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
                 <tr>
                     <th scope="col">Department</th>
                     <th scope="col">{{ $departments->department }}</th>

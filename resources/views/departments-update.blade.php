@@ -11,6 +11,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('departments-list') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Department Update</li>
         </ol>
       </nav>
     <table>
