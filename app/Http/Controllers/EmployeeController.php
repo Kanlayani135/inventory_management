@@ -64,8 +64,8 @@ class EmployeeController extends Controller
             
             $employee = new Employee();
             $employee->fill($data);
-            $employee->departments()->associate($data['department']);
-            $employee->divisions()->associate($data['division']);
+            $employee->department()->associate($data['department']);
+            $employee->division()->associate($data['division']);
             $employee->save();
                 return redirect()->route('employee-list')->with('success',"Created employee is successfully"); 
             } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
