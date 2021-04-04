@@ -58,12 +58,12 @@ class EmployeeController extends Controller
 
         function create(Request $request) {
             try {
-            $employee = Employee::create($request->getParsedBody());
+    
             $data = $request->getParsedBody();
             $employee = new Employee();
             $employee->fill($data);
-            $employee->department()->associate($data['department']);
-            $employee->division()->associate($data['division']);
+            $employee->departments()->associate($data['department']);
+            $employee->divisions()->associate($data['division']);
             $employee->save();
                 return redirect()->route('employee-list')->with('success',"Created employee is successfully"); 
             } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
