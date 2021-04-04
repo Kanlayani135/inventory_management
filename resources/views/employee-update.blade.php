@@ -32,13 +32,13 @@
       </tr>
       <tr>
         <td class="field-label"><label for="sex">sex :: </label></td>
-        <td> <select name="sex">
-        @foreach($sex as $sex)
-            <option value="{{ $sex->{{ $employee->sex }}" {{ ($male->sex == old('male'))? ' selected' : '' }}>
-              {{  old('sex')?? $employee->sex }} }}
+        <td><select name="sex" value="{{ old('sex') }}">
+            <option value="{{ $employee->sex }}">
+              Male
             </option>
-            @endforeach
-          
+            <option value="{{$employee->sex}}">
+              Female
+            </option>
           </select></td>
         <td><input id="sex" type="text" name="sex" value="{{ old('sex')?? $employee->sex }}"/></td>
       </tr>

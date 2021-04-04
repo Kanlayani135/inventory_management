@@ -20,6 +20,10 @@
             @endphp
         </div>
         @endif
+        <nav class="text-center">
+        @if(Auth::user()->guest) <a href="{{ route('employee-create-form') }}" class="btn btn-info">create your profile</a>@endif
+        @if(Auth::user()->is_admin) <a href="{{ route('employee-create-form') }}" class="btn btn-info">Add Employee</a>@endif
+  </nav><br />
       <table class="table">
     <thead>
       <tr>
@@ -37,7 +41,6 @@
       @foreach($employees as $employee)
       <tr>
         <th>
-        <a href="{{ route('employee-view', ['employee' => $employee->code,]) }}">
             {{ $employee->code }}
           </a>
         </th>
@@ -57,19 +60,20 @@
           <em>{{ $employee->hireddate }}</em>
         </td>
         <td>
-       
+        @if(Auth::user()->is_admin)
         <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-success" >Update</a>
+        @endif
         </td>
         <td>
+        @if(Auth::user()->is_admin)
         <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
+        @endif
     </td>
       </tr>
       @endforeach
     </tbody>
   </table>
-  <nav class="text-center">
-      <a href="{{ route('employee-create-form') }}" class="btn btn-info">Create Employee</a>
-  </nav>
+  
   {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

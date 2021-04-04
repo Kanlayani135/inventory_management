@@ -22,7 +22,7 @@
     @endif
     <main>
     <div class="text-center">
-        <label> @if(Auth::guest())<a href="{{ route('departments-create') }}" class="btn btn-info" >Create Department</a> @endif</label>
+        <label> @if(Auth::user()->is_admin)<a href="{{ route('departments-create') }}" class="btn btn-info" >Create Department</a> @endif</label>
     </div>
         <table class="table table-striped">
             <thead>
@@ -50,10 +50,7 @@
                 @if(Auth::user()->is_admin)
                 <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
                 @endif
-                <td><a href="{{route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
-                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a></td>
-                <td><a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
-                </td>
+               
             </tr>
             @endforeach
             </tbody>
