@@ -63,10 +63,6 @@
       @endforeach
     </tbody>
   </table>
-<<<<<<< HEAD
-=======
-  
->>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
   {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

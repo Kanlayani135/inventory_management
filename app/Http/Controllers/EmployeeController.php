@@ -57,11 +57,7 @@ class EmployeeController extends Controller
         }  
 
         function create(Request $request) {
-<<<<<<< HEAD
             try {
-=======
-            try{
->>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
             $employee = Employee::create($request->getParsedBody());
             $data = $request->getParsedBody();
             $employee = new Employee();
@@ -69,23 +65,11 @@ class EmployeeController extends Controller
             $employee->department()->associate($data['department']);
             $employee->division()->associate($data['division']);
             $employee->save();
-<<<<<<< HEAD
                 return redirect()->route('employee-list')->with('success',"Created employee is successfully"); 
             } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
         }    
     }
 
-=======
-                return redirect()->route('employee-list')->with('success',"Created employee is successfully");
-            }catch(\Exception $error){
-                return back()->withInput()->withErrors([
-                    'input'=>$error ->getMessage(),
-                ]);
-            }
-            
-            
-            }
->>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -110,39 +94,17 @@ class EmployeeController extends Controller
                     $employee->save();
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
-<<<<<<< HEAD
                     ])->with('success',"Employee updated is successfully");;
                 } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
             }
         }
-=======
-                    ])->with('success',"Employee updated is successfully");
-                }catch(\Exception $error){
-                    return back()->withInput()->withErrors([
-                        'input'=>$error ->getMessage(),
-                    ]);
-
-                } 
-            }
->>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
 
         function delete($employeeCode) {
             try{
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
                 return redirect()->route('employee-list')->with('success',"Employee Delete is successfully");
-<<<<<<< HEAD
                 } catch(\Exception $error){ return back()->withInput()->withErrors([ 'input'=>$error ->getMessage(),]);
             }
         }
-=======
-                  }catch(\Exception $error){
-                return back()->withInput()->withErrors([
-                    'input'=>$error ->getMessage(),
-                ]);
-
-            } 
-        }
-        
->>>>>>> 1f435c702ac20abcba15137c96f91c4f176ffdda
     }
