@@ -10,7 +10,7 @@ use App\Models\Division;
 class DepartmentsController extends Controller
 
 {
-  private $title = 'Department';
+  private $title = '';
   function __construct() {
   $this->middleware('auth');
 } 
@@ -29,7 +29,7 @@ class DepartmentsController extends Controller
       }
    
       return view('departments-list', [
-        'title' => "{$this->title}  's list",
+        'title' => "{$this->title}  Department's List",
         'term' => $term,
         'departments' => $query->paginate(5),
       ]);
@@ -39,14 +39,14 @@ class DepartmentsController extends Controller
     $departments = Department::where('id', $departments_id)->firstOrFail();
 
     return view('departments-view', [
-    'title' => "{$this->title} 's profile",
+    'title' => "{$this->title} Head of each Departments",
     'departments' => $departments,
     ]);
   }
     
   function createForm(Request $request) {
     return view('departments-create',[
-    'title' => "{$this->title} : Create Departments",
+    'title' => "{$this->title} Department's Form",
     ]);
   }  
 
@@ -58,7 +58,7 @@ class DepartmentsController extends Controller
   function updateForm($departments_id) {
     $departments = Department::where('id', $departments_id)->firstOrFail();
     return view('departments-update',[
-    'title' => "{$this->title} : Update",
+    'title' => "{$this->title} Department's Editing",
     'departments' => $departments,
     ]);
 }   

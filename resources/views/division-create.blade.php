@@ -18,7 +18,6 @@
             <thead>
             </thead>
             <tbody>
-           
                 <tr>
                 <td scope="col" for="division">Division</td>
                 <td scope="col"><input type="text" id="division" name="division" /></td>
@@ -29,7 +28,7 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" class="btn btn-success">Add Submit</i></button>
+        <button type="submit" class="btn btn-success">Create</i></button>
     </form>
     </main>
 @endsection

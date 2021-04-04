@@ -10,8 +10,10 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee Profile</li>
         </ol>
       </nav>
+    <div class="jumbotron">
     <table>
       <tbody>
         <tr>
@@ -72,5 +74,6 @@
         </tr>
       </tbody>
     </table>
+</div>
 </main>
 @endsection

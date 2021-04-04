@@ -23,38 +23,37 @@ class DivisionController extends Controller
         $division = Division::where('id', $division_id)->firstOrFail();
 
         return view('division-view', [
-        'title' => "{$this->title} 's company",
+        'title' => "{$this->title} 's Description",
         'division' => $division,
         ]);
         }
     function addform(){
        
         return view('division-create',[
-            'title' => "{$this->title} 's form",
+            'title' => "{$this->title} 's Form",
            
         ]);
     }
     function create(Request $request){
       
         $division = Division::create($request->getParsedBody());
-        return redirect()->route('division-list')->with('success',"Add name is success");   
+        return redirect()->route('division-list')->with('success',"Division created is successfully");   
     }
-    //update
- function updateForm($division_id) {
+    function updateForm($division_id) {
                 $division = Division::where('id', $division_id)->firstOrFail();
                 return view('division-update',[
-                'title' => "{$this->title}  's editing",
+                'title' => "{$this->title}'s Editing",
                 'division' => $division,
                 ]);
             }   
 
-        function update(Request $request, $division_id) {
-                    $division = Division::where('id', $division_id)->firstOrFail();
-                    $data = $request->getParsedBody();
-                    $division->fill($data);
-                    $division->save();
-                    return redirect()->route('division-list',['division' => $division->id,
-                    ])->with('success',"Department updated is successfully");
+    function update(Request $request, $division_id) {
+                $division = Division::where('id', $division_id)->firstOrFail();
+                $data = $request->getParsedBody();
+                $division->fill($data);
+                $division->save();
+                return redirect()->route('division-list',['division' => $division->id,
+                ])->with('success',"Division updated is successfully");
                 } 
 
     function delete($division_id){

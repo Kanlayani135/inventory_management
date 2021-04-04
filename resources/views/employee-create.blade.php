@@ -10,6 +10,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee Create</li>
         </ol>
       </nav>
     <table class="centered">
@@ -206,7 +207,7 @@
       </tr>
     </table>
     <div class="actions-panel">
-      <button type="submit">Create</button>
+      <button type="submit"class="btn btn-success">Create</button>
     </div>
   </form>
 </main>

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Inventory Management') }}</title>
+    <title>{{ config('app.name', 'Human Resource Management') }}</title>
     
 
     <!-- Scripts -->
@@ -84,5 +84,5 @@
         </main>
     </div>
 </body>
-<footer> &#xA9; Copyright , 135,177,204</footer>
+<footer> &#xA9; Copyright , Project Final Group Piku Co.,Ltd,</footer>
 </html>

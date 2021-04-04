@@ -9,6 +9,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee Update</li>
         </ol>
       </nav>
 <form action="{{ route('employee-update', ['employee' => $employee->code,]) }}" method="post">
@@ -88,7 +89,7 @@
       </tr>
     </table>
     <div class="actions-panel">
-      <button type="submit">Update</button>
+      <button type="submit"class="btn btn-success">Edit</button>
     </div>
   </form>
 </main>
