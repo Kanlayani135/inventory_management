@@ -65,6 +65,4 @@
         </table>
     </form>
 </main>
-    
-    </main>
 @endsection

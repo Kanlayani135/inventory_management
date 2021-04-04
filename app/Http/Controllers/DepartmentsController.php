@@ -33,7 +33,7 @@ class DepartmentsController extends Controller
       return view('departments-list', [
         'title' => "{$this->title}List of Departments",
         'term' => $term,
-        'departments' => $query->paginate(5),]);
+        'departments' => $query->paginate(10),]);
     }
 
   function show($departments_id) {
