@@ -14,7 +14,7 @@ class DivisionController extends Controller
         $query = Division::orderBy('id');
         $data = $request->getQueryParams();
         return view('division-list',[
-            'title' =>"{$this->title} Division's list",
+            'title' =>"{$this->title} List of Divisions",
             'divisions' =>$query->paginate(100),
         ]);
     }
@@ -30,7 +30,7 @@ class DivisionController extends Controller
     function addform(){
        
         return view('division-create',[
-            'title' => "{$this->title} Division's form",
+            'title' => "{$this->title} Division form",
            
         ]);
     }
@@ -50,7 +50,7 @@ class DivisionController extends Controller
  function updateForm($division_id) {
                 $division = Division::where('id', $division_id)->firstOrFail();
                 return view('division-update',[
-                'title' => "{$this->title}  Division's editing",
+                'title' => "{$this->title}  Division editing",
                 'division' => $division,
                 ]);
             }   
