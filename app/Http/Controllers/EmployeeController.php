@@ -35,7 +35,7 @@ class EmployeeController extends Controller
         });
         }
     return view('employee-list', [
-    'title' => "{$this->title} 's list",
+    'title' => "{$this->title} 's List",
     'employees' => Employee::orderBy('code')->get(),
     'employees' => $query->paginate(5),
     ]);
@@ -45,7 +45,7 @@ class EmployeeController extends Controller
         $employee = Employee::where('code', $employeeCode)->firstOrFail();
 
         return view('employee-view', [
-        'title' => "{$this->title} 's profile",
+        'title' => "{$this->title}'s Profile",
         'employee' => $employee,
         ]);
         }
@@ -56,20 +56,15 @@ class EmployeeController extends Controller
             
          
             return view('employee-create',[
-            'title' => "{$this->title} : Create Employee",
+            'title' => "{$this->title}'s Form",
             'departments' => $departments->get(),
             'divisions' => $divisions->get(),
-            
-
-            
-           
-            
             ]);
-            }  
+        }  
 
         function create(Request $request) {
             $employee = Employee::create($request->getParsedBody());
-            return redirect()->route('employee-list')->with('success',"Create employee is successfully"); }
+            return redirect()->route('employee-list')->with('success',"Created employee is successfully"); }
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
@@ -79,6 +74,7 @@ class EmployeeController extends Controller
                 'title' => "{$this->title} : Update",
                 'departments' => $departments->get(),
                 'divisions' => $divisions->get(),
+                'title' => "{$this->title}'s Editing",
                 'employee' => $employee,
                 
                 ]);
@@ -91,12 +87,12 @@ class EmployeeController extends Controller
                     $employee->save();
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
-                    ]);
+                    ])->with('success',"Employee updated is successfully");;
                 } 
 
         function delete($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
-                return redirect()->route('employee-list')->with('success',"Delete employee is successfully");
+                return redirect()->route('employee-list')->with('success',"Employee Delete is successfully");
             }     
     }

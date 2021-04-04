@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Inventory Management') }}</title>
+    <title>{{ config('app.name', 'Human Resource Management') }}</title>
     
 
     <!-- Scripts -->
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Inventory Management') }}
+                    {{ config('app.name', 'Human Resource Management') }}
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -79,10 +79,11 @@
         </nav>
 
         <main class="py-4">
+            
         <h1>@yield('title') </h1>
             @yield('content')
         </main>
     </div>
 </body>
-<footer> &#xA9; Copyright , 135,177,204</footer>
+<footer> &#xA9; Copyright , Project Final Group Piku Co.,Ltd,</footer>
 </html>

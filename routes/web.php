@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\AboutusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,10 @@ Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home'
 
 //home
 
-Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage'); 
+Route::get('homepage', [HomepageController::class,'homepage'])->name('homepage');
+
+//About Us
+Route::get('aboutus', [AboutusController::class,'aboutus'])->name('aboutus'); 
 
 //employee
 
@@ -47,7 +51,7 @@ Route::post('/employee/{employee}/update', [EmployeeController::class, 'update']
 
 //delete
 
-Route::get('/employee/{employee}/delete', [EmployeeController::class, 'delete'])->name('employee-delete');
+Route::get('/employee/{employee}/delete', [EmployeeController::class, 'delete'])->name('employee-delete')->middleware('is_admin');
 
 //view
 
@@ -55,20 +59,24 @@ Route::get('/employee/{employee}', [EmployeeController::class,'show'])->name('em
 
 //department
 Route::get('/department', [DepartmentsController::class, 'list'])->name('departments-list');
-Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form');
+Route::get('/department/create', [DepartmentsController::class, 'createForm'])->name('departments-create-form')->middleware('is_admin');
 
-Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create');
+Route::post('/department/create', [DepartmentsController::class, 'create'])->name('departments-create')->middleware('is_admin');
 
-Route::get('/department/{department}/update', [DepartmentsController::class, 'updateForm'])->name('department-update-form');
+Route::get('/department/{department}/update', [DepartmentsController::class, 'updateForm'])->name('department-update-form')->middleware('is_admin');
 
-Route::post('/department/{department}/update', [DepartmentsController::class, 'update'])->name('department-update');
+Route::post('/department/{department}/update', [DepartmentsController::class, 'update'])->name('department-update')->middleware('is_admin');
 
-Route::get('/department/{department}/delete', [DepartmentsController::class, 'delete'])->name('department-delete');
+Route::get('/department/{department}/delete', [DepartmentsController::class, 'delete'])->name('department-delete')->middleware('is_admin');
 
 Route::get('/department/{department}', [DepartmentsController::class,'show'])->name('department-view');
 
 //division
 Route::get('/division', [DivisionController::class, 'list'])->name('division-list');
-Route::get('/division/create', [DivisionController::class, 'addform'])->name('division-create-form');
-Route::post('/division/create', [DivisionController::class, 'create'])->name('division-create');
-Route::get('/division/{division}/delete', [DivisionController::class, 'delete'])->name('division-delete');
+
+Route::get('/division/create', [DivisionController::class, 'addform'])->name('division-create-form')->middleware('is_admin');
+Route::post('/division/create', [DivisionController::class, 'create'])->name('division-create')->middleware('is_admin');
+Route::get('/division/{division}', [DivisionController::class, 'show'])->name('division-view');
+Route::get('/division/{division}/update', [DivisionController::class, 'updateForm'])->name('division-update-form')->middleware('is_admin');
+Route::post('/division/{division}/update', [DivisionController::class, 'update'])->name('division-update')->middleware('is_admin');
+Route::get('/division/{division}/delete', [DivisionController::class, 'delete'])->name('division-delete')->middleware('is_admin');
