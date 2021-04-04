@@ -143,15 +143,14 @@
           </select></td>
       </tr>
       <tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         <td class="field-label"><label for="division_id">division :: </label></td>
         <td><input id="division_id" type="text" name="division" value="{{ old('division_id') }}"/></td>
-=======
+
         <td class="field-label"><label for="division_id">division_ID :: </label></td>
-=======
+
         <td class="field-label"><label for="division_id">division :: </label></td>
->>>>>>> be2d08c8c8072f6465377beadaccadfc8b75cc94
+
         <td><select name="division_id">
           <option value="">
             --Select ID--
@@ -165,10 +164,6 @@
           <option value="3">
             ID 3 -PURCHASE
             </option>
-<<<<<<< HEAD
-          </select></td>
->>>>>>> 0caf8a46c581444f9519dc35edf26c6448a468bd
-=======
           </select>
           <select name="division">
           <option value="">
@@ -185,7 +180,6 @@
             </option>
           </select>
           </td>
->>>>>>> be2d08c8c8072f6465377beadaccadfc8b75cc94
       </tr>
       <tr>
         <td class="field-label"><label for="workstatus">workstatus :: </label></td>

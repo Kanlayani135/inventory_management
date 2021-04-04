@@ -15,6 +15,10 @@
 <main>
     <table class="table table-striped">
             <tbody>
+<<<<<<< HEAD
+=======
+               
+>>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
                 <tr>
                     <th scope="col">Department</th>
                     <th scope="col">{{ $departments->department }}</th>

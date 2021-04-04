@@ -61,6 +61,14 @@
         </td>
         <td>
           <em>{{ $employee->hireddate }}</em>
+<<<<<<< HEAD
+=======
+        </td>
+        <td>
+       
+        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-success" >Update</a>
+        </td>
+>>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
         <td>
         <a href="{{ route('employee-view', ['employee' => $employee->code,]) }}" class="btn btn-success" >Show</a>
         <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-primary" >Edit</a>

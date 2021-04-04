@@ -44,10 +44,23 @@
                     <td>{{ $division->division }}</td>
                     <td>{{ $division->division_head }}</td>
                     <td> 
+<<<<<<< HEAD
                         <a class="btn btn-success" href="{{ route('division-view',['division'=>$division->id]) }}">Show</a>
                         <a class="btn btn-primary" href="{{ route('division-update',['division'=>$division->id]) }}">Edit</a>
                         <a class="btn btn-danger" href="{{route('division-delete',['division'=>$division->id])}}">Delete</a>
                     </td>    
+=======
+                    <a class="btn btn-info" href="{{ route('division-view',['division'=>$division->id]) }}">Show</a>
+                    @if(Auth::user()->is_admin)
+                    <a class="btn btn-primary" href="{{ route('division-update',['division'=>$division->id]) }}">Edit</a>
+                    @endif
+                    @if(Auth::user()->is_admin)
+                   <a class="btn btn-danger" href="{{route('division-delete',['division'=>$division->id])}}">Delete</a>
+                  @endif
+                </td>
+                        
+                
+>>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
             @endforeach
             </tbody>
         </table>

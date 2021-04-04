@@ -29,7 +29,14 @@
         <i class="bi bi-plus-circle"><a href="{{ route('departments-create') }}" }}>Create New Department</a></i></button>
     </div>
     <main>
+<<<<<<< HEAD
         <table class="table table-striped ">
+=======
+    <div class="text-center">
+        <label> @if(Auth::guest())<a href="{{ route('departments-create') }}" class="btn btn-info" >Create Department</a> @endif</label>
+    </div>
+        <table class="table table-striped">
+>>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -44,15 +51,35 @@
                 <th>{{ $department->id }}</th>
                 <td>{{ $department->department }}</td>
                 <td>{{ $department->department_head }}</td>
+<<<<<<< HEAD
                 <td>
                     <a href="{{route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
                     <a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-primary">Edit</a>
                     <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
+=======
+                <td><a href="{{ route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
+                @if(Auth::user()->is_admin)
+                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a>
+                @endif
+                </td>
+                <td>
+                @if(Auth::user()->is_admin)
+                <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
+                @endif
+                <td><a href="{{route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
+                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a></td>
+                <td><a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
+>>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
                 </td>
             </tr>
             @endforeach
             </tbody>
         </table>
     </form>
+<<<<<<< HEAD
 </main>
+=======
+    
+    </main>
+>>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
 @endsection
