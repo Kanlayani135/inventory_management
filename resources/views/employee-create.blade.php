@@ -10,27 +10,29 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee Create</li>
         </ol>
       </nav>
-    <table class="centered">
+      <center>
+    <table class="table table-striped" style="width: 1200px;">
       <tr>
-        <td class="field-label"><label for="code">Code :: </label></td>
+        <td scope="col"><label for="code">Code</label></td>
         <td><input id="code" type="text" name="code" value="{{ old('code') }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="fname">fname :: </label></td>
+        <td scope="col"><label for="fname">First Name</label></td>
         <td><input id="fname" type="text" name="fname" value="{{ old('fname') }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="lnumber">lname :: </label></td>
+        <td scope="col"><label for="lnumber">Last Name</label></td>
         <td><input id="lname" type="text" name="lname" value="{{ old('lname') }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="address">address :: </label></td>
+        <td scope="col"><label for="address">Address</label></td>
         <td><textarea id="address" name="address" cols="40" rows="5">{{ old('address') }}</textarea></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="sex">sex :: </label></td>
+        <td scope="col"><label for="sex">Sex</label></td>
         <td>
         <select name="sex">
         @foreach($males as $male)
@@ -47,19 +49,19 @@
         </td>
       </tr>
       <tr>
-        <td class="field-label"><label for="dob">date of birth :: </label></td>
+        <td scope="col"><label for="dob">Date of Birth</label></td>
         <td><input id="dob" type="date" name="dob" value="{{ old('dob') }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="age">age :: </label></td>
+        <td scope="col"><label for="age">Age</label></td>
         <td><input id="age" type="text" name="age" value="{{ old('age') }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="tel">telephone :: </label></td>
+        <td scope="col"><label for="tel">Telephone Number</label></td>
         <td><input id="tel" type="text" name="tel" value="{{ old('tel') }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="civilstatus">civilstatus :: </label></td>
+        <td scope="col"><label for="civilstatus">Civil Status</label></td>
         <td><select name="civilstatus">
             <option value="">
             --Please Select--
@@ -73,7 +75,7 @@
           </select></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="position">position :: </label></td>
+        <td scope="col"><label for="position">Position</label></td>
         <td><select name="position">
           <option value="">
             --Please Select--
@@ -87,7 +89,7 @@
           </select></td></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="derpartment_id">department :: </label></td>
+        <td scope="col"><label for="derpartment_id">Department</label></td>
         <td><select name="department">
             <option value="">
             --Select ID--
@@ -143,12 +145,12 @@
       </tr>
       <tr>
 
-        <td class="field-label"><label for="division_id">division :: </label></td>
+        <td scope="col"><label for="division_id">Division</label></td>
         <td><input id="division_id" type="text" name="division" value="{{ old('division_id') }}"/></td>
 
-        <td class="field-label"><label for="division_id">division_ID :: </label></td>
+        <td scope="col"><label for="division_id">division_ID :: </label></td>
 
-        <td class="field-label"><label for="division_id">division :: </label></td>
+        <td scope="col"><label for="division_id">division :: </label></td>
 
         <td><select name="division_id">
           <option value="">
@@ -181,7 +183,7 @@
           </td>
       </tr>
       <tr>
-        <td class="field-label"><label for="workstatus">workstatus :: </label></td>
+        <td scope="col"><label for="workstatus">Work Status</label></td>
         <td><select name="workstatus">
             <option value="">
             --Please Select--
@@ -195,13 +197,12 @@
           </select></td></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="number">hireddate :: </label></td>
+        <td class="field-label"><label for="number">Hired Date</label></td>
         <td><input id="hireddate" type="date" name="hireddate" value="{{ old('hireddate') }}"/></td>
       </tr>
     </table>
-    <div class="actions-panel">
-      <button type="submit">Create</button>
-    </div>
+  </center>
+      <button type="submit"class="btn btn-success">Create</button>
   </form>
 </main>
 @endsection

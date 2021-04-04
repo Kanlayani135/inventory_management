@@ -22,7 +22,7 @@
         @endif
         <nav class="text-center">
         @if(Auth::user()->guest) <a href="{{ route('employee-create-form') }}" class="btn btn-info">create your profile</a>@endif
-        @if(Auth::user()->is_admin) <a href="{{ route('employee-create-form') }}" class="btn btn-info">Add Employee</a>@endif
+        @if(Auth::user()->is_admin) <a href="{{ route('employee-create-form') }}" class="btn btn-info">create new employee</a>@endif
   </nav><br />
       <table class="table">
     <thead>
@@ -33,13 +33,13 @@
         <th scope="col">Position</th>
         <th scope="col">Work Status</th>
         <th scope="col">Hired Date</th>
-        <th></th>
-        <th></th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach($employees as $employee)
       <tr>
+<<<<<<< HEAD
         <th>
             {{ $employee->code }}
           </a>
@@ -69,11 +69,27 @@
         <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
         @endif
     </td>
+=======
+        <th> {{ $employee->code }} </th>
+        <td><em>{{ $employee->fname }}</em></td>
+        <td><em>{{ $employee->lname }}</em></td>
+        <td><em>{{ $employee->position }}</em></td>
+        <td><em>{{ $employee->workstatus }}</em></td>
+        <td><em>{{ $employee->hireddate }}</em></td>
+        <td>
+        <a href="{{ route('employee-view', ['employee' => $employee->code,]) }}" class="btn btn-success" >Show</a>
+        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-primary" >Edit</a>
+        <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
+      </td>
+>>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
       </tr>
       @endforeach
     </tbody>
   </table>
+<<<<<<< HEAD
   
+=======
+>>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
   {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

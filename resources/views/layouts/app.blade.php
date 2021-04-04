@@ -85,5 +85,5 @@
         </main>
     </div>
 </body>
-<footer> &#xA9; Copyright , 135,177,204</footer>
+<footer> &#xA9; Copyright , Project Final Group Piku Co.,Ltd,</footer>
 </html>

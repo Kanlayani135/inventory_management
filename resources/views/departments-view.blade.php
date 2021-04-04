@@ -10,21 +10,24 @@
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('departments-list') }}">Back</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Department View</li>
             </ol>
     </nav>
 <main>
-    <table class="table table-striped">
+    <center>
+    <table class="table table-striped" style="width: 600px;">
+        <thead></thead>
             <tbody>
-               
                 <tr>
-                    <th scope="col">Department</th>
-                    <th scope="col">{{ $departments->department }}</th>
-                    </tr>
+                    <td scope="col">Department</td>
+                    <td scope="col">{{ $departments->department }}</td>
+                </tr>
                 <tr>
-					<th scope="col">Department Head</th>
-                    <th scope="col">{{ $departments->department_head }}</th>
-                    </tr>
+					<td scope="col">Department Head</td>
+                    <td scope="col">{{ $departments->department_head }}</td>
+                </tr>
             </tbody>
-    </table>
-</main>
+        </table>
+    </center>
+    </main>
 @endsection

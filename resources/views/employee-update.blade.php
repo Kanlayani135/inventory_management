@@ -9,10 +9,12 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('employee-list') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee Update</li>
         </ol>
       </nav>
 <form action="{{ route('employee-update', ['employee' => $employee->code,]) }}" method="post">
     @csrf
+    <center>
     <table class="centered">
       <tr>
         <td class="field-label"><label for="code">Code :: </label></td>
@@ -87,8 +89,9 @@
         <td><input id="hireddate" type="date" name="hireddate" value="{{ old('hireddate')?? $employee->hireddate }}"/></td>
       </tr>
     </table>
+    </center>
     <div class="actions-panel">
-      <button type="submit">Update</button>
+      <button type="submit"class="btn btn-success">Edit</button>
     </div>
   </form>
 </main>
