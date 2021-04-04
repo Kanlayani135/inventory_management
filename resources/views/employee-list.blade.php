@@ -9,13 +9,8 @@
   <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee</li>
         </ol>
-      </nav>
-      <nav>
-        
-            <a href="{{ route('employee-create-form') }}" class="btn btn-success">Create Employee</a>
-          
       </nav>
       @if(Session::has('success'))
         <div class="alert alert-success">
@@ -72,6 +67,9 @@
       @endforeach
     </tbody>
   </table>
+  <nav class="text-center">
+      <a href="{{ route('employee-create-form') }}" class="btn btn-info">Create Employee</a>
+  </nav>
   {{ $employees->withQueryString()->links() }}
 </main>
 @endsection

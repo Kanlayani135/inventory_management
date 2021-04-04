@@ -6,7 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Models\Division;
 class DivisionController extends Controller
 {
-    private $title = 'Division';
+    private $title = '';
     function __construct() {
         $this->middleware('auth');
       } 
@@ -14,7 +14,7 @@ class DivisionController extends Controller
         $query = Division::orderBy('id');
         $data = $request->getQueryParams();
         return view('division-list',[
-            'title' =>"{$this->title} 's list",
+            'title' =>"{$this->title} Division's list",
             'divisions' =>$query->paginate(100),
         ]);
     }
@@ -23,14 +23,14 @@ class DivisionController extends Controller
         $division = Division::where('id', $division_id)->firstOrFail();
 
         return view('division-view', [
-        'title' => "{$this->title} 's company",
+        'title' => "{$this->title} Head of each Divisions",
         'division' => $division,
         ]);
         }
     function addform(){
        
         return view('division-create',[
-            'title' => "{$this->title} 's form",
+            'title' => "{$this->title} Division's form",
            
         ]);
     }
@@ -50,7 +50,7 @@ class DivisionController extends Controller
  function updateForm($division_id) {
                 $division = Division::where('id', $division_id)->firstOrFail();
                 return view('division-update',[
-                'title' => "{$this->title}  's editing",
+                'title' => "{$this->title}  Division's editing",
                 'division' => $division,
                 ]);
             }   

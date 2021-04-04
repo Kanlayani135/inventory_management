@@ -9,7 +9,7 @@
     <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Back</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Departments</li>
             </ol>
         </nav>
     @if(Session::has('success'))
@@ -50,6 +50,9 @@
                 @if(Auth::user()->is_admin)
                 <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
                 @endif
+                <td><a href="{{route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
+                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a></td>
+                <td><a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             @endforeach
