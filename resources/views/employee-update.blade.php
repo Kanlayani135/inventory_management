@@ -61,13 +61,13 @@
       </tr>
       <tr>
       <tr>
-        <td class="field-label"><label for="derpartment">department :: </label></td>
-        <td><select id=department name="department">
+        <td class="field-label"><label for="department">department_ID :: </label></td>
+        <td><select id="department" name="department">
         @foreach($departments as $department)
                         @if($department->id === $employee->department_id)
-                                <option selected value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > [{{ $department->id }}] {{ $department->department }}</option>
+                                <option selected value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > {{ $department->id }}</option>
                             @else
-                                <option value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > [{{ $department->id }}] {{ $department->department }}</option>
+                                <option value="{{ $department->id }}" {{ ($department->id == old('department'))? ' selected' : '' }} > {{ $department->id }} </option>
                             @endif
                         @endforeach
           </select>

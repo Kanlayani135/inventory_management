@@ -39,7 +39,6 @@
     <tbody>
       @foreach($employees as $employee)
       <tr>
-<<<<<<< HEAD
         <th>
             {{ $employee->code }}
           </a>
@@ -69,27 +68,10 @@
         <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
         @endif
     </td>
-=======
-        <th> {{ $employee->code }} </th>
-        <td><em>{{ $employee->fname }}</em></td>
-        <td><em>{{ $employee->lname }}</em></td>
-        <td><em>{{ $employee->position }}</em></td>
-        <td><em>{{ $employee->workstatus }}</em></td>
-        <td><em>{{ $employee->hireddate }}</em></td>
-        <td>
-        <a href="{{ route('employee-view', ['employee' => $employee->code,]) }}" class="btn btn-success" >Show</a>
-        <a href="{{ route('employee-update-form', ['employee' => $employee->code,]) }}" class="btn btn-primary" >Edit</a>
-        <a href="{{ route('employee-delete', ['employee' => $employee->code,]) }}" class="btn btn-danger" >Delete</a>
-      </td>
->>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
       </tr>
       @endforeach
     </tbody>
   </table>
-<<<<<<< HEAD
-  
-=======
->>>>>>> cf0adb9001053730570e84c750295a44f7d7d76c
   {{ $employees->withQueryString()->links() }}
 </main>
 @endsection
