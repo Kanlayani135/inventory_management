@@ -30,6 +30,7 @@ class EmployeeController extends Controller
         }
     return view('employee-list', [
     'title' => "{$this->title} 's List",
+    'term' => $term,
     'employees' => Employee::orderBy('code')->get(),
     'employees' => $query->paginate(100),
     ]);
@@ -45,10 +46,8 @@ class EmployeeController extends Controller
         }
 
         function createForm(Request $request) {
-            $departments = Department::orderBy('id');
-            $divisions = Division::orderBy('id');
-            
-         
+            $departments = Department::orderBy('code');
+            $divisions = Division::orderBy('code');
             return view('employee-create',[
             'title' => "{$this->title}'s Form",
             'departments' => $departments->get(),
@@ -60,6 +59,9 @@ class EmployeeController extends Controller
             try {
     
             $data = $request->getParsedBody();
+            
+            $employee = Employee::create($request->getParsedBody());
+            
             $employee = new Employee();
             $employee->fill($data);
             $employee->department()->associate($data['department']);
@@ -73,8 +75,8 @@ class EmployeeController extends Controller
         
         function updateForm($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
-                $departments = Department::orderBy('id');
-                $divisions = Division::orderBy('id');
+                $departments = Department::orderBy('code');
+                $divisions = Division::orderBy('code');
                 return view('employee-update',[
                 'title' => "{$this->title}'s Editing",
                 'departments' => $departments->get(),
@@ -88,9 +90,9 @@ class EmployeeController extends Controller
             try{
                     $employee = Employee::where('code', $employeeCode)->firstOrFail();
                     $data = $request->getParsedBody();
+                    $employee = Employee::where('code', $employeeCode)->firstOrFail();
                     $employee->fill($data);
                     $employee->department()->associate($data['department']);
-                    $employee->division()->associate($data['division']);
                     $employee->save();
                     return redirect()->route('employee-list',[
                     'employee' => $employee->code,
