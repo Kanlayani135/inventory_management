@@ -14,19 +14,21 @@
           <li class="breadcrumb-item active" aria-current="page">Department Update</li>
         </ol>
       </nav>
-    <table>
+  <center>
+    <table class="table table-striped" style="width: 600px;">
+            <thead>
+            </thead>
       <tr>
-        <td class="field-label"><label for="department"> Department :: </label></td>
-        <td><input id="department" type="text" name="department" value="{{ old('department')?? $departments->department }}"/></td>
+        <td  scope="col"><label for="department"> Department</label></td>
+        <td  scope="col"><input id="department" type="text" name="department" value="{{ old('department')?? $departments->department }}"/></td>
       </tr>
       <tr>
-        <td class="field-label"><label for="department_head"> Department Head :: </label></td>
-        <td><input id="department_head" type="text" name="department_head" value="{{ old('department_head')?? $departments->department_head }}"/></td>
+        <td  scope="col"><label for="department_head"> Department Head</label></td>
+        <td  scope="col"><input id="department_head" type="text" name="department_head" value="{{ old('department_head')?? $departments->department_head }}"/></td>
       </tr>
     </table>
-    <div class="actions-panel">
-      <button type="submit" class="btn btn-info" >Submit</button>
-    </div>
+  </center>
+      <button type="submit" class="btn btn-success" >Edit</button>
   </form>
 </main>
 @endsection

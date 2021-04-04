@@ -45,22 +45,20 @@
                 <td>{{ $department->department }}</td>
                 <td>{{ $department->department_head }}</td>
                 <td>
-                    <a href="{{route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
+
+                    <a href="{{ route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
+
+                @if(Auth::user()->is_admin)
+
                     <a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-primary">Edit</a>
+                @endif
+
+                @if(Auth::user()->is_admin)
+
                     <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
-                <td><a href="{{ route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
-                @if(Auth::user()->is_admin)
-                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a>
+
                 @endif
-                </td>
-                <td>
-                @if(Auth::user()->is_admin)
-                <a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
-                @endif
-                <td><a href="{{route('department-view', ['department' =>$department->id,]) }}" class="btn btn-success">Show</a>
-                <td><a href="{{route('department-update',['department'=>$department->id,])}}" class="btn btn-warning">Update</a></td>
-                <td><a href="{{route('department-delete',['department'=>$department->id,])}}" class="btn btn-danger">Delete</a>
-                </td>
+            </td>
             </tr>
             @endforeach
             </tbody>

@@ -14,6 +14,7 @@
       </nav>
 <form action="{{ route('employee-update', ['employee' => $employee->code,]) }}" method="post">
     @csrf
+    <center>
     <table class="centered">
       <tr>
         <td class="field-label"><label for="code">Code :: </label></td>
@@ -88,6 +89,7 @@
         <td><input id="hireddate" type="date" name="hireddate" value="{{ old('hireddate')?? $employee->hireddate }}"/></td>
       </tr>
     </table>
+    </center>
     <div class="actions-panel">
       <button type="submit"class="btn btn-success">Edit</button>
     </div>

@@ -42,7 +42,8 @@
                 <tr>
                     <th>{{ $division->id }}</th>
                     <td>{{ $division->division }}</td>
-                    <td>{{ $division->division_head }}</td>  
+                    <td>{{ $division->division_head }}</td>
+                    <td>
                     <a class="btn btn-success" href="{{ route('division-view',['division'=>$division->id]) }}">Show</a>
                     @if(Auth::user()->is_admin)
                     <a class="btn btn-primary" href="{{ route('division-update',['division'=>$division->id]) }}">Edit</a>

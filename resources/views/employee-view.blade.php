@@ -13,67 +13,67 @@
           <li class="breadcrumb-item active" aria-current="page">Employee Profile</li>
         </ol>
       </nav>
-    <div class="jumbotron">
-    <table>
+      <center>
+    <table class="table table-striped" style="width: 600px;">
       <tbody>
         <tr>
-          <td class="field-label">Code ::</td>
-          <td class="type">{{ $employee->code }}</td>
+          <td scope="col">Code</td>
+          <td scope="col">{{ $employee->code }}</td>
         </tr>
         <tr>
-          <td class="field-label">First name ::</td>
-          <td class="type">{{ $employee->fname }}</td>
+          <td scope="col">First name</td>
+          <td scope="col">{{ $employee->fname }}</td>
         </tr>
         <tr>
-          <td class="field-label">Last name ::</td>
-          <td class="type">{{ $employee->lname }}</td>
+          <td scope="col">Last name</td>
+          <td scope="col">{{ $employee->lname }}</td>
         </tr>
         <tr>
-          <td class="field-label">Address ::</td>
-          <td class="type">{{ $employee->address }}</td>
+          <td scope="col">Address</td>
+          <td scope="col">{{ $employee->address }}</td>
         </tr>
         <tr>
-          <td class="field-label">Sex ::</td>
-          <td class="type">{{ $employee->sex }}</td>
+          <td scope="col">Sex</td>
+          <td scope="col">{{ $employee->sex }}</td>
         </tr>
         <tr>
-          <td class="field-label">Date of Birth ::</td>
-          <td class="type">{{ $employee->dob }}</td>
+          <td scope="col">Date of Birth</td>
+          <td scope="col">{{ $employee->dob }}</td>
         </tr>
         <tr>
-          <td class="field-label">Age ::</td>
-          <td class="type">{{ $employee->age }}</td>
+          <td scope="col">Age</td>
+          <td scope="col">{{ $employee->age }}</td>
         </tr>
         <tr>
-          <td class="field-label">Telephone Number ::</td>
-          <td class="type">{{ $employee->tel }}</td>
+          <td scope="col">Telephone Number</td>
+          <td scope="col">{{ $employee->tel }}</td>
         </tr>
         <tr>
-          <td class="field-label">Civil Status ::</td>
-          <td class="type">{{ $employee->civilstatus }}</td>
+          <td scope="col">Civil Status</td>
+          <td scope="col">{{ $employee->civilstatus }}</td>
         </tr>
         <tr>
-          <td class="field-label">Position ::</td>
-          <td class="type">{{ $employee->position }}</td>
+          <td scope="col">Position</td>
+          <td scope="col">{{ $employee->position }}</td>
         </tr>
         <tr>
-          <td class="field-label">Department ::</td>
-          <td class="type">{{ $employee->department }}</td>
+          <td scope="col">Department</td>
+          <td scope="col">{{ $employee->department }}</td>
         </tr>
         <tr>
-          <td class="field-label">Division ::</td>
-          <td class="type">{{ $employee->division }}</td>
+          <td scope="col">Division</td>
+          <td scope="col">{{ $employee->division }}</td>
         </tr>
           <tr>
-          <td class="field-label">Work Status ::</td>
-          <td class="type">{{ $employee->workstatus }}</td>
+          <td scope="col">Work Status</td>
+          <td scope="col">{{ $employee->workstatus }}</td>
         </tr>
         <tr>
-          <td class="field-label">Hired Date ::</td>
-          <td class="type">{{ $employee->hireddate }}</td>
+          <td scope="col">Hired Date</td>
+          <td scope="col">{{ $employee->hireddate }}</td>
         </tr>
       </tbody>
     </table>
-</div>
+    </center>
 </main>
 @endsection

@@ -13,9 +13,9 @@
   </ol>
 </nav>
     <main>
+      <center>
         <table class="table table-striped" style="width: 600px;">
-          
-            <thead>
+          <thead>
             </thead>
             <tbody>
                 <tr>
@@ -28,6 +28,7 @@
                 </tr>
             </tbody>
         </table>
+      </center>
         <button type="submit" class="btn btn-success">Create</i></button>
     </form>
     </main>

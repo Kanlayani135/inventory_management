@@ -13,12 +13,11 @@
   </ol>
 </nav>
     <main>
+    <center>
         <table class="table table-striped" style="width: 600px;">
-          
             <thead>
             </thead>
             <tbody>
-           
                 <tr>
                 <td scope="col" for="division">Division</td>
                 <td scope="col"><input type="text" id="division" name="division" value="{{ old('division')?? $division->division }}"/></td>
@@ -29,6 +28,7 @@
                 </tr>
             </tbody>
         </table>
+      </center>
         <button type="submit" class="btn btn-success">Edit</i></button>
     </form>
     </main>
