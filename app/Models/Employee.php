@@ -10,10 +10,10 @@ class Employee extends Model
     use HasFactory;
     protected $fillable =['code','fname','lname','address','sex','dob','age','tel','civilstatus','position','department_id','division_id','workstatus','hireddate'];
     
-    function departments() {
+    function department() {
         return $this->belongsto(Department::class);
     }
-    function divisions() {
+    function division() {
         return $this->belongsto(Division::class);
     }
 }
