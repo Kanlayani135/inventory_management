@@ -14,7 +14,7 @@ class DivisionController extends Controller
         $query = Division::orderBy('id');
         $data = $request->getQueryParams();
         return view('division-list',[
-            'title' =>"{$this->title} Division's list",
+            'title' =>"{$this->title} List of Divisions",
             'divisions' =>$query->paginate(100),
         ]);
     }
@@ -35,10 +35,14 @@ class DivisionController extends Controller
        
         return view('division-create',[
 <<<<<<< HEAD
+<<<<<<< HEAD
             'title' => "{$this->title} 's Form",
 =======
             'title' => "{$this->title} Division's form",
 >>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
+=======
+            'title' => "{$this->title} Division form",
+>>>>>>> 0792422da09fbf8f811b1949b579750e468d6327
            
         ]);
     }
@@ -62,10 +66,14 @@ class DivisionController extends Controller
                 $division = Division::where('id', $division_id)->firstOrFail();
                 return view('division-update',[
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'title' => "{$this->title}'s Editing",
 =======
                 'title' => "{$this->title}  Division's editing",
 >>>>>>> 41274f6084b1a5bb7d8394ac346b4eb13ba2b482
+=======
+                'title' => "{$this->title}  Division editing",
+>>>>>>> 0792422da09fbf8f811b1949b579750e468d6327
                 'division' => $division,
                 ]);
             }   

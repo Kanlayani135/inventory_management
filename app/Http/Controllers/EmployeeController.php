@@ -97,6 +97,6 @@ class EmployeeController extends Controller
         function delete($employeeCode) {
                 $employee = Employee::where('code', $employeeCode)->firstOrFail();
                 $employee->delete();
-                return redirect()->route('employee-list')->with('success'," Employee Delete is successfully");
+                return redirect()->route('employee-list')->with('success',"Employee Delete is successfully");
             }     
     }
